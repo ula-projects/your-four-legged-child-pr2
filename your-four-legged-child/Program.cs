@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.core;
+using your_four_legged_child.src.enums;
 using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child
@@ -44,38 +45,36 @@ namespace your_four_legged_child
                                         string[] idList = store.GetProductsId();
                                         while (productSelection != 0)
                                         {
-                                            Menus.ProductHeader("Todos los Productos");
+                                            Menus.PrintHeader("Todos los Productos");
                                             store.PrintAllProducts();
                                             Menus.PrintProductRange(1, store.GetProductsLength());
                                             Console.WriteLine("Selecciona un producto para agregar al carrito\n0) Regresar\n");
                                             productSelection = UserInput.Option(0, store.GetProductsLength());
                                             if (productSelection != 0) store.AddProductToCart(idList[productSelection - 1]);
-                                            Console.ReadKey();
                                         }
                                         break;
                                     }
                                 case 2:
                                     {
+                                        productSelection = 1;
                                         string[] idList = store.GetProductsId();
                                         while (productSelection != 0)
                                         {
-                                            Menus.ProductHeader("Productos de Cuidado");
+                                            Menus.PrintHeader("Productos de Cuidado");
                                             store.PrintProductsByCategory(ProductTypes.care);
-                                            productSelection = 1;
                                             Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.care));
                                             Console.WriteLine("Selecciona un producto para agregar al carrito\n0) Regresar\n");
                                             productSelection = UserInput.Option(0, store.GetProductsByCategoryLength(ProductTypes.care));
                                             if (productSelection != 0) store.AddProductToCart(idList[productSelection - 1]);
-                                            Console.ReadKey();
                                         }
                                         break;
                                     }
                                 case 3:
                                     {
-                                        Menus.ProductHeader("Servicios Especiales");
+                                        Menus.PrintHeader("Servicios Especiales");
                                         store.PrintProductsByCategory(ProductTypes.special);
                                         productSelection = 1;
-                                        Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.care));
+                                        Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.special));
                                         Console.WriteLine("Selecciona un producto para agregar al carrito\n0) Regresar");
                                         while (productSelection != 0)
                                         {
@@ -85,10 +84,10 @@ namespace your_four_legged_child
                                     }
                                 case 4:
                                     {
-                                        Menus.ProductHeader("Accesorios");
+                                        Menus.PrintHeader("Accesorios");
                                         store.PrintProductsByCategory(ProductTypes.accessories);
                                         productSelection = 1;
-                                        Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.care));
+                                        Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.accessories));
                                         Console.WriteLine("Selecciona un producto para agregar al carrito\n0) Regresar");
                                         while (productSelection != 0)
                                         {
@@ -104,11 +103,13 @@ namespace your_four_legged_child
 
                     // Menu de Carrito
                     case 2:
-                        CartMenuState = 1;
+                        Menus.PrintHeader("Carrito");
+                        store.PrintCart();
+                        Console.ReadKey();
+                        CartMenuState = 0;
                         while (CartMenuState != 0)
                         {
-                            Menus.CartMenu();
-                            CartMenuState = UserInput.Option(0, 3);
+                            //CartMenuState = UserInput.Option(0, 3);
 
                             switch (CartMenuState)
                             {

@@ -1,39 +1,31 @@
 ﻿using System;
+using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
 using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-    internal class Store
+    internal partial class Store
     {
-        // Store Name
         string name;
-        // Inventory
         Product[] products;
-        // Cart
-        Product[] Cart;
+        Product[] cart;
 
         public Store()
         {
             name = "Tu hijo de 4 Patas";
-            products = new Product[12];
+            products = new Product[3];
+            cart = new Product[0];
             GenerateProducts();
         }
         public void GenerateProducts()
         {
-            products[0] = new Product("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.care);
+            products[0] = new Food("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.care);
             products[1] = new Product("pdc2kg", "Purina Dog Chow 2kg", 10, "Perro", "Comida para perro de 2kg - razas medianas", ProductTypes.care);
             products[2] = new Product("pdc5kg", "Purina Dog Chow 5kg", 15, "Perro", "Comida para perro de 5kg - razas grandes", ProductTypes.care);
-            products[3] = new Product("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.special);
-            products[4] = new Product("pdc2kg", "Purina Dog Chow 2kg", 10, "Perro", "Comida para perro de 2kg - razas medianas", ProductTypes.special);
-            products[5] = new Product("pdc5kg", "Purina Dog Chow 5kg", 15, "Perro", "Comida para perro de 5kg - razas grandes", ProductTypes.special);
-            products[6] = new Product("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.special);
-            products[7] = new Product("pdc2kg", "Purina Dog Chow 2kg", 10, "Perro", "Comida para perro de 2kg - razas medianas", ProductTypes.special);
-            products[8] = new Product("pdc5kg", "Purina Dog Chow 5kg", 15, "Perro", "Comida para perro de 5kg - razas grandes", ProductTypes.special);
-            products[9] = new Product("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.special);
-            products[10] = new Product("pdc2kg", "Purina Dog Chow 2kg", 10, "Perro", "Comida para perro de 2kg - razas medianas", ProductTypes.special);
-            products[11] = new Product("pdc5kg", "Purina Dog Chow 5kg", 15, "Perro", "Comida para perro de 5kg - razas grandes", ProductTypes.special);
         }
+
+
 
         //Imprime todos los Productos
         public void PrintAllProducts()
@@ -120,7 +112,21 @@ namespace your_four_legged_child.src.core
         // Agrega un nuevo producto al carrito de compras
         public void AddProductToCart(string _id)
         {
-            Console.WriteLine(_id);
+            foreach (var product in products)
+            {
+                if (product.GetId() == _id)
+                {
+                    Product newProduct = product.Clone();
+
+                    Console.Clear();
+                    newProduct.PrintProduct();
+                    newProduct.Personalize();
+                    Array.Resize(ref cart, this.cart.Length + 1);
+                    int newPos = this.cart.Length - 1;
+                    cart[newPos] = newProduct;
+
+                }
+            }
         }
 
         // Retorna el numero de elementos en el carrito
@@ -128,5 +134,6 @@ namespace your_four_legged_child.src.core
         {
             return 0;
         }
+
     }
 }

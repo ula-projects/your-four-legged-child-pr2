@@ -35,5 +35,59 @@ namespace your_four_legged_child.src.utilities
             }
             return value;
         }
+
+        public static int Number()
+        {
+            Menus.PrintArrow(1);
+            bool ready = false;
+            int value = 0;
+            while (!ready)
+            {
+                string userInput = Console.ReadLine();
+                try
+                {
+                    value = int.Parse(userInput);
+                    ready = true;
+                }
+                catch
+                {
+                    Menus.PrintArrow(-1);
+                }
+            }
+            Menus.DeleteLastLine();
+            Menus.PrintArrow(1);
+            Console.WriteLine(value);
+            return value;
+        }
+        public static int Number(int _min = 0)
+        {
+            Menus.PrintArrow(1);
+            bool ready = false;
+            int value = 0;
+            while (!ready)
+            {
+                string userInput = Console.ReadLine();
+                try
+                {
+                    value = int.Parse(userInput);
+                    if (value >= _min)
+                    {
+                        ready = true;
+                    }
+                    else
+                    {
+                        Menus.PrintArrow(-1);
+                    }
+                }
+                catch
+                {
+                    Menus.PrintArrow(-1);
+                }
+            }
+            Menus.DeleteLastLine();
+            Menus.PrintArrow(1);
+            Console.WriteLine(value);
+            return value;
+        }
     }
 }
