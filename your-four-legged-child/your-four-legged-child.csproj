@@ -48,11 +48,16 @@
     <Compile Include="src\core\StoreCart.cs" />
     <Compile Include="src\core\StoreInventory.cs" />
     <Compile Include="src\enums\Product.cs" />
-    <Compile Include="src\models\Food.cs" />
     <Compile Include="src\models\Person.cs" />
     <Compile Include="src\core\Store.cs" />
     <Compile Include="src\models\Client.cs" />
     <Compile Include="src\models\Product.cs" />
+    <Compile Include="src\models\product\Beeds.cs" />
+    <Compile Include="src\models\product\Collars.cs" />
+    <Compile Include="src\models\product\Food.cs" />
+    <Compile Include="src\models\product\HygieneAccessories.cs" />
+    <Compile Include="src\models\product\Toys.cs" />
+    <Compile Include="src\models\SpecialNeeds.cs" />
     <Compile Include="src\models\Vendor.cs" />
     <Compile Include="src\utilities\Menus.cs" />
     <Compile Include="src\utilities\UserInput.cs" />
@@ -61,6 +66,9 @@
     <None Include="App.config" />
     <None Include="docs\README.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\models\accessories\" />
+    <Folder Include="src\models\services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

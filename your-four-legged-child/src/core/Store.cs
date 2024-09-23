@@ -1,6 +1,7 @@
 ﻿using System;
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
+using your_four_legged_child.src.models.product;
 using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
@@ -14,15 +15,16 @@ namespace your_four_legged_child.src.core
         public Store()
         {
             name = "Tu hijo de 4 Patas";
-            products = new Product[3];
+            products = new Product[4];
             cart = new Product[0];
             GenerateProducts();
         }
         public void GenerateProducts()
         {
-            products[0] = new Food("pdc1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para perro de 1kg - razas pequenas", ProductTypes.care);
-            products[1] = new Product("pdc2kg", "Purina Dog Chow 2kg", 10, "Perro", "Comida para perro de 2kg - razas medianas", ProductTypes.care);
-            products[2] = new Product("pdc5kg", "Purina Dog Chow 5kg", 15, "Perro", "Comida para perro de 5kg - razas grandes", ProductTypes.care);
+            products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
+            products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
+            products[2] = new Product("collar", "Collar", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
+            products[3] = new Product("zapatos", "Zapato", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
         }
 
 
@@ -109,30 +111,17 @@ namespace your_four_legged_child.src.core
         }
 
 
-        // Agrega un nuevo producto al carrito de compras
-        public void AddProductToCart(string _id)
-        {
-            foreach (var product in products)
-            {
-                if (product.GetId() == _id)
-                {
-                    Product newProduct = product.Clone();
 
-                    Console.Clear();
-                    newProduct.PrintProduct();
-                    newProduct.Personalize();
-                    Array.Resize(ref cart, this.cart.Length + 1);
-                    int newPos = this.cart.Length - 1;
-                    cart[newPos] = newProduct;
-
-                }
-            }
-        }
 
         // Retorna el numero de elementos en el carrito
         public int getCartCount()
         {
-            return 0;
+            int count = 0;
+            foreach (var cartProduct in cart)
+            {
+                count += cartProduct.GetCount();
+            }
+            return count;
         }
 
     }

@@ -26,7 +26,6 @@ namespace your_four_legged_child
                 Menus.MainMenu(store.getCartCount());
 
                 mainState = UserInput.Option(0, 3);
-
                 switch (mainState)
                 {
                     // Menu de Productos

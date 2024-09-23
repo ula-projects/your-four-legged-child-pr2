@@ -15,8 +15,8 @@ namespace your_four_legged_child.src.models
         float price;
         string details;
         string animal;
-        ProductTypes type;
         int count;
+        ProductTypes type;
 
         // Constructores
         public Product(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type)
@@ -38,6 +38,7 @@ namespace your_four_legged_child.src.models
         public ProductTypes GetProductType() => this.type;
         public int GetCount() => this.count;
         public float GetTotal() => this.price * this.count;
+
         //Setters
         public void SetCount(int _count, bool add = false)
         {
@@ -55,34 +56,38 @@ namespace your_four_legged_child.src.models
         }
 
         // Methods
+
+        // Imprimir datos basicos del producto
         public virtual void PrintProduct()
         {
-            string nameText = "Nombre " + name;
+            string nameText = "Nombre " + this.name;
+            string priceText = "Precio: $" + this.price;
             Console.Write(nameText);
-            string priceText = "Precio: " + this.price;
             Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length - 1));
             Console.WriteLine("Descripccion: " + details);
             Menus.PrintLine();
         }
+        // Imprimir todos los datos del producto
         public virtual void PrintProductDetails()
         {
-            string nameText = "Nombre " + name;
-            Console.Write(nameText);
-            string priceText = "Precio: " + price;
-            Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length - 1));
-            Console.WriteLine("Descripccion: " + details);
+            string countText = "Cantidad: " + this.count;
+            PrintProduct();
+            Menus.DeleteLastLine();
             Console.WriteLine("Animal: " + animal);
+            Console.WriteLine(countText.PadLeft(Console.WindowWidth - countText.Length - 1));
             Menus.PrintLine();
         }
-
-
-
+        // Personalizar el producto
         public virtual void Personalize()
         {
             Console.WriteLine("Cuantos Productos deseas llevar?");
-            int count = UserInput.Number(1);
-            Console.ReadKey();
+            this.count = UserInput.Number(1);
         }
+
+        // Comparar Producto
+        public virtual bool Compare(Product _compareTo) => this.id == _compareTo.GetId() ? true : false;
+
+        // Clonar producto
         public Product Clone()
         {
             return (Product)this.MemberwiseClone();

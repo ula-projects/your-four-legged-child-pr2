@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.utilities;
 
-namespace your_four_legged_child.src.models
+namespace your_four_legged_child.src.models.product
 {
     internal class Food : Product
     {
@@ -20,6 +20,9 @@ namespace your_four_legged_child.src.models
         }
 
         // Getters
+        public string GetRace() => this.race;
+        public int GetAge() => this.age;
+        public string GetSpecialNeeds() => this.specialNeeds;
         // Setters
 
         // Methods
@@ -44,6 +47,13 @@ namespace your_four_legged_child.src.models
             Console.WriteLine("Que necesidades especiales tiene tu " + base.GetAnimal() + "?");
             this.specialNeeds = Console.ReadLine();
             base.Personalize();
+        }
+
+        public override bool Compare(Product _compareTo)
+        {
+            if (_compareTo is Food compareTo)
+                if (this.age == compareTo.GetAge() && this.race == compareTo.GetRace() && this.specialNeeds == compareTo.GetSpecialNeeds()) return true;
+            return false;
         }
     }
 }
