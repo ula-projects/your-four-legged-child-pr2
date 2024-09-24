@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.models;
+using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
@@ -11,21 +12,38 @@ namespace your_four_legged_child.src.core
     {
         // Getters
 
-        // Imprimit Carrito
-        public void PrintCart()
+        // Retorna el numero de elementos en el carrito
+        public int GetCartLength() => this.cart.Length;
+
+        // Retorna el numero de productos totales en el carrito
+        public int GetCartCount()
         {
-            int count = 1;
-            foreach (var product in cart)
+            int count = 0;
+            foreach (var cartProduct in cart)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(count + ")");
-                Console.ResetColor();
-                product.PrintProductDetails();
-                count++;
+                count += cartProduct.GetCount();
             }
+            return count;
+        }
+
+        // Retorna el precio total del carrito sin iva
+        public float GetCartTotal()
+        {
+            float total = 0;
+            foreach (var cartProduct in cart)
+            {
+                total += cartProduct.GetTotal();
+            }
+            return total;
         }
 
         // Setters
+
+        // Update One Product
+        public void UpdateProduct(int i)
+        {
+            cart[i].Update();
+        }
 
         // Agrega un nuevo producto al carrito de compras
         public void AddProductToCart(string _id)
@@ -62,6 +80,25 @@ namespace your_four_legged_child.src.core
 
                 }
             }
+        }
+
+        // Methods
+
+        // Imprimit Carrito
+        public void PrintCart()
+        {
+            string totalText = "Total: " + GetCartTotal();
+            int count = 1;
+            foreach (var product in cart)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(count + ")");
+                Console.ResetColor();
+                product.PrintProductDetails();
+                count++;
+            }
+            Console.WriteLine(totalText.PadLeft(Console.WindowWidth));
+            Menus.PrintLine();
         }
     }
 }

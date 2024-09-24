@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.enums;
@@ -29,12 +30,14 @@ namespace your_four_legged_child.src.models.product
 
         public override void PrintProductDetails()
         {
+            string countText = "Cantidad: " + base.GetCount();
             base.PrintProductDetails();
-            Menus.DeleteLastLine();
+            Menus.DeleteLastLine(2);
             Console.WriteLine("Raza: " + this.race);
             Console.WriteLine("Edad: " + this.age);
             if (this.specialNeeds.Length > 0)
                 Console.WriteLine("Necesidades Especiales: " + this.specialNeeds);
+            Console.WriteLine(countText.PadLeft(Console.WindowWidth));
             Menus.PrintLine();
         }
 

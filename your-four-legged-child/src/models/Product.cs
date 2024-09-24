@@ -40,6 +40,13 @@ namespace your_four_legged_child.src.models
         public float GetTotal() => this.price * this.count;
 
         //Setters
+
+        public virtual void Update()
+        {
+            Menus.PrintHeader("Actualizar Producto");
+            PrintProduct();
+            Console.ReadKey();
+        }
         public void SetCount(int _count, bool add = false)
         {
             if (_count > 0)
@@ -63,7 +70,7 @@ namespace your_four_legged_child.src.models
             string nameText = "Nombre " + this.name;
             string priceText = "Precio: $" + this.price;
             Console.Write(nameText);
-            Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length - 1));
+            Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length));
             Console.WriteLine("Descripccion: " + details);
             Menus.PrintLine();
         }
@@ -71,10 +78,11 @@ namespace your_four_legged_child.src.models
         public virtual void PrintProductDetails()
         {
             string countText = "Cantidad: " + this.count;
+
             PrintProduct();
             Menus.DeleteLastLine();
             Console.WriteLine("Animal: " + animal);
-            Console.WriteLine(countText.PadLeft(Console.WindowWidth - countText.Length - 1));
+            Console.WriteLine(countText.PadLeft(Console.WindowWidth));
             Menus.PrintLine();
         }
         // Personalizar el producto

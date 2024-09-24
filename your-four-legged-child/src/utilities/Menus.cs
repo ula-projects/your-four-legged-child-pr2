@@ -87,5 +87,14 @@ namespace your_four_legged_child.src.utilities
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, Console.CursorTop);
         }
+        public static void DeleteLastLine(int i)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+            }
+        }
     }
 }

@@ -113,16 +113,7 @@ namespace your_four_legged_child.src.core
 
 
 
-        // Retorna el numero de elementos en el carrito
-        public int getCartCount()
-        {
-            int count = 0;
-            foreach (var cartProduct in cart)
-            {
-                count += cartProduct.GetCount();
-            }
-            return count;
-        }
+
 
     }
 }
