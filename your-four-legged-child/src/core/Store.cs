@@ -1,21 +1,19 @@
 ﻿using System;
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
-using your_four_legged_child.src.models.product;
+using your_four_legged_child.src.models.care;
 using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
     internal partial class Store
     {
-        string name;
         Product[] products;
         Product[] cart;
 
         public Store()
         {
-            name = "Tu hijo de 4 Patas";
-            products = new Product[4];
+            products = new Product[6];
             cart = new Product[0];
             GenerateProducts();
         }
@@ -23,8 +21,11 @@ namespace your_four_legged_child.src.core
         {
             products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
             products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
-            products[2] = new Product("collar", "Collar", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
-            products[3] = new Product("zapatos", "Zapato", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
+            products[2] = new Beed("docbeedsm", "Cama para Perro", 30, "Perro", "Cama para perros - Pequena", ProductTypes.care);
+            products[3] = new Beed("docbeedmd", "Cama para Perro", 40, "Perro", "Cama para perros - Mediana", ProductTypes.care);
+            products[4] = new Beed("docbeedlg", "Cama para Perro", 40, "Perro", "Cama para perros - Grande", ProductTypes.care);
+            products[5] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
+
         }
 
 
@@ -109,11 +110,5 @@ namespace your_four_legged_child.src.core
             }
             return ids;
         }
-
-
-
-
-
-
     }
 }

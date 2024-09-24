@@ -10,12 +10,17 @@ namespace your_four_legged_child.src.core
 {
     internal partial class Store
     {
-        // Getters
 
-        // Retorna el numero de elementos en el carrito
+        /// <summary>
+        /// Retorna el numero de elementos en el carrito
+        /// </summary>
+        /// <returns></returns>
         public int GetCartLength() => this.cart.Length;
 
-        // Retorna el numero de productos totales en el carrito
+        /// <summary>
+        /// Retorna el numero de productos totales en el carrito
+        /// </summary>
+        /// <returns></returns>
         public int GetCartCount()
         {
             int count = 0;
@@ -26,7 +31,10 @@ namespace your_four_legged_child.src.core
             return count;
         }
 
-        // Retorna el precio total del carrito sin iva
+        /// <summary>
+        /// Calcula el total 
+        /// </summary>
+        /// <returns></returns>
         public float GetCartTotal()
         {
             float total = 0;
@@ -37,15 +45,45 @@ namespace your_four_legged_child.src.core
             return total;
         }
 
-        // Setters
-
-        // Update One Product
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
         public void UpdateProduct(int i)
         {
-            cart[i].Update();
+            int options = 1;
+            while (options != 0)
+            {
+                Menus.PrintHeader("Actualizar Producto");
+                cart[i].PrintProductDetails();
+                Console.WriteLine("1) Eliminar producto\n2) Actualizar Cantidad\n3) Actualizar Personalizacion\n0) Regresar");
+                options = UserInput.Option(0, 3);
+                switch (options)
+                {
+                    case 1:
+                        DeleteProductFromCart(i);
+                        options = 0;
+                        break;
+                    case 2:
+                        {
+                            Menus.DeleteLastLine(5);
+                            Console.WriteLine("Cantidad: ");
+                            int count = UserInput.Number(1);
+                            cart[i].SetCount(count);
+                        }
+                        break;
+                    case 3:
+                        Menus.DeleteLastLine(5);
+                        cart[i].Update();
+                        break;
+                }
+            };
         }
 
-        // Agrega un nuevo producto al carrito de compras
+        /// <summary>
+        ///  Agrega un nuevo producto al carrito de compras
+        /// </summary>
+        /// <param name="_id">id del producto</param>
         public void AddProductToCart(string _id)
         {
             foreach (var product in products)
@@ -64,27 +102,49 @@ namespace your_four_legged_child.src.core
                             if (cart[i].Compare(newProduct))
                                 existsPos = i;
                     }
-                    Console.WriteLine(existsPos);
-                    Console.ReadKey();
 
                     if (existsPos != -1)
                     {
                         cart[existsPos].SetCount(newProduct.GetCount(), true);
                     }
+
                     else
                     {
                         Array.Resize(ref cart, this.cart.Length + 1);
                         int newPos = this.cart.Length - 1;
                         cart[newPos] = newProduct;
                     }
+                    Menus.PrintHeader("Agregado Exitosamente al carrito");
+                    Console.ReadKey();
 
                 }
             }
         }
 
-        // Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_index"></param>
+        public void DeleteProductFromCart(int _index)
+        {
+            Product[] auxCart = cart;
+            Array.Resize(ref cart, this.cart.Length - 1);
 
-        // Imprimit Carrito
+
+            int cartPos = 0;
+            for (int i = 0; i < auxCart.Length; i++)
+            {
+                if (i != _index)
+                {
+                    cart[cartPos] = auxCart[i];
+                    cartPos++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void PrintCart()
         {
             string totalText = "Total: " + GetCartTotal();

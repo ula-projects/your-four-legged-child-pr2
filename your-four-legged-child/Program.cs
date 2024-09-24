@@ -125,17 +125,17 @@ namespace your_four_legged_child
                     // Menu de Carrito
                     case 2:
                         {
-                            int length = store.GetCartLength();
                             int CartMenuState = 1;
 
                             while (CartMenuState != 0)
                             {
+                                int length = store.GetCartLength();
                                 Menus.PrintHeader("Carrito");
                                 store.PrintCart();
                                 if (length > 0)
                                 {
                                     Menus.PrintProductRange(1, length);
-                                    Console.WriteLine("Selecciona un producto para editarlo");
+                                    Console.WriteLine("Selecciona un producto para ver mas opciones");
                                 }
                                 Console.WriteLine("0) Regresar");
                                 CartMenuState = UserInput.Option(0, length);

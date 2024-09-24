@@ -29,7 +29,8 @@ namespace your_four_legged_child.src.models
             this.type = _type;
         }
 
-        // Getters
+        // *****Getters*****
+
         public string GetId() => this.id;
         public string GetName() => this.name;
         public string GetAnimal() => this.animal;
@@ -39,14 +40,13 @@ namespace your_four_legged_child.src.models
         public int GetCount() => this.count;
         public float GetTotal() => this.price * this.count;
 
-        //Setters
+        /// *****Setters*****
 
-        public virtual void Update()
-        {
-            Menus.PrintHeader("Actualizar Producto");
-            PrintProduct();
-            Console.ReadKey();
-        }
+        /// <summary>
+        /// Definir la cantidad de un mismo producto
+        /// </summary>
+        /// <param name="_count"></param>
+        /// <param name="add"></param>
         public void SetCount(int _count, bool add = false)
         {
             if (_count > 0)
@@ -62,9 +62,28 @@ namespace your_four_legged_child.src.models
             }
         }
 
-        // Methods
+        /// <summary>
+        /// Personalizar el producto
+        /// </summary>
+        public virtual void Personalize()
+        {
+            Console.WriteLine("Cuantos Productos deseas llevar?");
+            this.count = UserInput.Number(1);
+        }
 
-        // Imprimir datos basicos del producto
+        /// <summary>
+        /// Actualizar personalizacion del producto
+        /// </summary>
+        public virtual void Update()
+        {
+
+        }
+
+        // *****Methods*****
+
+        /// <summary>
+        /// Imprimir datos basicos del producto
+        /// </summary>
         public virtual void PrintProduct()
         {
             string nameText = "Nombre " + this.name;
@@ -74,7 +93,10 @@ namespace your_four_legged_child.src.models
             Console.WriteLine("Descripccion: " + details);
             Menus.PrintLine();
         }
-        // Imprimir todos los datos del producto
+
+        /// <summary>
+        /// Imprimir todos los datos del producto
+        /// </summary>
         public virtual void PrintProductDetails()
         {
             string countText = "Cantidad: " + this.count;
@@ -85,19 +107,21 @@ namespace your_four_legged_child.src.models
             Console.WriteLine(countText.PadLeft(Console.WindowWidth));
             Menus.PrintLine();
         }
-        // Personalizar el producto
-        public virtual void Personalize()
-        {
-            Console.WriteLine("Cuantos Productos deseas llevar?");
-            this.count = UserInput.Number(1);
-        }
 
-        // Comparar Producto
+        /// <summary>
+        /// Comparar Producto
+        /// </summary>
+        /// <param name="_compareTo"></param>
+        /// <returns></returns>
         public virtual bool Compare(Product _compareTo) => this.id == _compareTo.GetId() ? true : false;
 
-        // Clonar producto
-        public Product Clone()
+        /// <summary>
+        /// Clonar producto
+        /// </summary>
+        /// <returns></returns>
+        public virtual Product Clone()
         {
+
             return (Product)this.MemberwiseClone();
         }
     }

@@ -11,16 +11,6 @@ namespace your_four_legged_child.src.utilities
 {
     public static class Menus
     {
-        public static void ExitApp()
-        {
-            //string message = "¡Hasta la proxima!";
-            //CleanConsole();
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("");
-            //Console.WriteLine(message.PadLeft(Console.WindowWidth / 2 + message.Length / 2));
-            //Console.WriteLine("");
-            //Console.ResetColor();
-        }
         public static void MainMenu(int _cart = 0)
         {
             string message = "Tu hijo de 4 patas - Petshop";
