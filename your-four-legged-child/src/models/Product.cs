@@ -8,7 +8,32 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models
 {
-    internal class Product
+	/*
+    TDA PRODUCTO
+
+    - Propiedades
+    C. de caracteres    ID
+    C. de caracteres    nombre
+    Flotante            precio
+    C. de caracteres    detalles
+    C. de caracteres    animal
+    Entero              Cantidad
+    TipoDeProducto      tipo
+
+    - Métodos
+                        Producto(ID, nombre, precio, animal, detalles, tipo)
+    vacío               Personalizar()
+    vacío               Imprimir()
+    (virtual) vacío     ImprimirDetalles()  //Imprime todo, tanto datos básicos como personalización
+    vacío               Imprimir(Moneda, Flotante DolarBCV) //Imprime el precio en diferentes monedas
+    (virtual) vacío     ImprimirDetalles(Moneda, Flotante DolarBCV)
+    vacío               ImprimirParaFactura() //Imprime los datos básicos para la factura
+    vacío               ImprimirParaFactura(Moneda, Flotante DolarBCV)
+    (virtual) vacío     Actualizar()
+    boolean             Comparar(Producto aComparar)
+    */
+
+	internal class Product
     {
         string id;
         string name;

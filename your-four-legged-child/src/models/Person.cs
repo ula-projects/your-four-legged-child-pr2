@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.models
 {
-    internal class Person
+	/*
+    TDA PERSONA
+
+    - Propiedades
+    Cadena de caracteres    nombre
+    Cadena de caracteres    apellido
+    Entero                  numIdentificación
+    Cadena de caracteres    númeroTelefono //Es un string por tener en cuenta los guiones y espacios
+    Cadena de caracteres    residencia
+
+    - Métodos
+                            Persona(nombre, apellido, numIdentificación, númeroTelefono, residencia)
+    vacío                   ImprimirDetalles()
+    */
+	internal class Person
     {
         string name;
         string lastName;

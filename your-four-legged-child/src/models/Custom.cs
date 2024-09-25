@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.models
 {
+    /*
+    TDA PERSONALIZABLE
+
+    - Propiedades
+    C. de caracteres    nombre
+    C. de caracteres    valor
+
+    - Métodos
+    Vacío               Imprimir()
+     */
+
     internal class Custom
     {
         string label;

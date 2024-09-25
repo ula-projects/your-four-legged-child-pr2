@@ -1,0 +1,26 @@
+/*
+TDA PERSONA
+
+- Propiedades
+Cadena de caracteres    nombre
+Cadena de caracteres    apellido
+Entero                  id
+Cadena de caracteres    númeroTelefono //Es un string por tener en cuenta los guiones y espacios
+Cadena de caracteres    residencia
+
+- Métodos
+public Person(nombre, apellido, int Número de of, string _phone, string _residence)
+
+
+*/
+
+/*
+TDA CLIENTE (Hereda de PERSONA)
+Booleano     contribuyenteEspecial
+*/
+
+/*
+TDA VENDEDOR (Hereda de PERSONA)
+Entero  ventas
+*/
+

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.models
 {
-    internal class Client : Person
+	/*
+    TDA CLIENTE (-> Hereda de PERSONA)
+
+    - Propiedades
+    Booleano    contribuyenteEspecial
+
+    - Métodos
+    vacío       ImprimirDetalles() [sobreescrito]
+    */
+	internal class Client : Person
     {
         bool specialTaxpayer;
 
