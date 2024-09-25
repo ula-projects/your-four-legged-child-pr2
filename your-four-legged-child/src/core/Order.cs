@@ -46,23 +46,25 @@ namespace your_four_legged_child.src.core
 
         public void PrintCart()
         {
-            string totalText = "SUBTTL: " + GetCartTotal();
+            string totalText = "SUBTTL: " + (currency == Currency.usd ? "USD " : "BS ") + (currency == Currency.usd ? GetCartTotal() : GetCartTotal() * bcv);
             int count = 1;
+
             foreach (var product in cart)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(count + ")");
                 Console.ResetColor();
-                product.PrintProductDetails();
+                product.PrintProductDetails(currency, bcv);
                 count++;
             }
-            Console.WriteLine(totalText.PadLeft(Console.WindowWidth));
+            Menus.PrintRightText(totalText);
             Menus.PrintLine();
         }
 
         public void PrintBill()
         {
             bool specialTaxpayer = client.GetSpecialTaxpayer();
+            string currencyText = (currency == Currency.usd ? "USD " : "BS ");
             float cartTotal = currency == Currency.bolivar ? GetCartTotal() * bcv : GetCartTotal();
             float iva = cartTotal * 0.16f;
             float finalTotal = specialTaxpayer ? cartTotal : cartTotal + iva;
@@ -80,8 +82,14 @@ namespace your_four_legged_child.src.core
             Menus.PrintCenterText("Detalles de tu compra");
             Menus.PrintLine();
             PrintCart();
-            Menus.PrintRightText("I.V.A: " + iva);
-            Menus.PrintRightText("Total a pagar: $" + finalTotal);
+            Menus.PrintRightText("IVA G16.00%: " + currencyText + iva);
+            if (currency == Currency.usd)
+            {
+                float IGTF = finalTotal * 0.03f;
+                finalTotal += IGTF;
+                Menus.PrintRightText("IGTF 3.00%: " + currencyText + IGTF);
+            }
+            Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
             Menus.PrintLine();
 
         }

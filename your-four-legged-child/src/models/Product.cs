@@ -82,12 +82,27 @@ namespace your_four_legged_child.src.models
         // *****Methods*****
 
         /// <summary>
-        /// Imprimir datos basicos del producto
+        /// 
         /// </summary>
+        /// <param name="_currency"></param>
+        /// <param name="_bcv"></param>
         public virtual void PrintProduct()
         {
-            string nameText = "Nombre " + this.name;
+            string nameText = "Nombre: " + this.name;
             string priceText = "Precio: $" + this.price;
+            Console.Write(nameText);
+            Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length));
+            Console.WriteLine("Descripccion: " + details);
+            Menus.PrintLine();
+        }
+
+        /// <summary>
+        /// Imprimir datos basicos del producto
+        /// </summary>
+        public virtual void PrintProduct(Currency _currency, float _bcv)
+        {
+            string nameText = "Nombre: " + this.name;
+            string priceText = "Precio: " + (_currency == Currency.usd ? "USD " : "BS ") + (_currency == Currency.usd ? this.price : this.price * _bcv);
             Console.Write(nameText);
             Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length));
             Console.WriteLine("Descripccion: " + details);
@@ -100,6 +115,20 @@ namespace your_four_legged_child.src.models
         public virtual void PrintProductDetails()
         {
             PrintProduct();
+            Menus.DeleteLastLine();
+            Console.WriteLine("Animal: " + animal);
+            Menus.PrintRightText("Cantidad: " + this.count);
+            Menus.PrintLine();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_currency"></param>
+        /// <param name="bcv"></param>
+        public virtual void PrintProductDetails(Currency _currency, float _bcv)
+        {
+            PrintProduct(_currency, _bcv);
             Menus.DeleteLastLine();
             Console.WriteLine("Animal: " + animal);
             Menus.PrintRightText("Cantidad: " + this.count);
