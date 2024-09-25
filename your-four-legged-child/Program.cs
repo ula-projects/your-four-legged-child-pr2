@@ -275,10 +275,8 @@ namespace your_four_legged_child
                             if (finalOption == 1)
                             {
                                 store.Payment(order);
+                                Console.ReadKey();
                             }
-
-
-                            Console.ReadKey();
                             break;
                         }
                 }
