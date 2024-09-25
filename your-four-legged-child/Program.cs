@@ -206,8 +206,31 @@ namespace your_four_legged_child
 
                             Menus.PrintHeader("Check Out");
                             store.PrintVendors();
-                            Console.WriteLine("Selecciona un vendedor:");
-                            int vendorPos = UserInput.Option(1, 3);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine(store.GetVendorCount() + 1 + ") ");
+                            Console.ResetColor();
+                            Console.WriteLine("Agregar nuevo vendedor");
+
+                            Console.WriteLine("\nSelecciona un vendedor:\n");
+                            int vendorPos = UserInput.Option(1, store.GetVendorCount() + 1);
+                            if (vendorPos == store.GetVendorCount() + 1)
+                            {
+                                //Crear nuevo vendedor
+                                Menus.PrintHeader("Check Out");
+                                Console.WriteLine("Nombre: ");
+                                string vendorName = UserInput.String();
+                                Console.WriteLine("Apellido: ");
+                                string vendorLastName = UserInput.String();
+                                Console.WriteLine("Cedula: ");
+                                int vendorID = UserInput.Number(1);
+                                Console.WriteLine("Numero de telefono: ");
+                                string vendorPhone = UserInput.String();
+                                Console.WriteLine("Residencia: ");
+                                string vendorResidence = UserInput.String();
+
+                                Vendor newVendor = new Vendor(vendorName, vendorLastName, vendorID, vendorPhone, vendorResidence);
+                                store.AddNewVendor(newVendor);
+                            }
                             vendor = store.GetVendor(vendorPos - 1);
 
                             Menus.PrintHeader("Check Out");

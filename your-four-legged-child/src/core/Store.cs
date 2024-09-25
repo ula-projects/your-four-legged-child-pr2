@@ -36,6 +36,8 @@ namespace your_four_legged_child.src.core
 
         public Vendor GetVendor(int i) => vendors[i];
 
+        public int GetVendorCount() => vendors.Length;
+
 
         public void PrintVendors()
         {
@@ -47,6 +49,13 @@ namespace your_four_legged_child.src.core
                 vendors[i].PrintDetails();
             }
         }
+
+        public void AddNewVendor(Vendor _vendor)
+        {
+            Array.Resize(ref vendors, vendors.Length + 1);
+            vendors[vendors.Length - 1] = _vendor;
+        }
+
         public Client GetClient(int _idNumber)
         {
             foreach (var client in clients)
