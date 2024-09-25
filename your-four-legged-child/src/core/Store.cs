@@ -12,14 +12,12 @@ namespace your_four_legged_child.src.core
         Product[] products;
         Product[] cart;
         Client[] clients;
-        //Person currentClient;
         Vendor[] vendors;
-        //Person[] currentVendor;
         Order[] orders;
 
         public Store(float _bcv)
         {
-            products = new Product[15];
+            products = new Product[10];
             cart = new Product[0];
             clients = new Client[0];
             vendors = new Vendor[3];

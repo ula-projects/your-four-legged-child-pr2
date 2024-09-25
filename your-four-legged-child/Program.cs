@@ -94,11 +94,11 @@ namespace your_four_legged_child
                                                 store.PrintProductsByCategory(ProductTypes.special);
                                                 if (length > 0)
                                                 {
-                                                    Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.special));
+                                                    Menus.PrintProductRange(1, length);
                                                     Console.WriteLine("Selecciona un producto para agregar al carrito");
                                                 }
                                                 Console.WriteLine("0) Regresar");
-                                                productSelection = UserInput.Option(0, store.GetProductsByCategoryLength(ProductTypes.special));
+                                                productSelection = UserInput.Option(0, length);
                                                 if (productSelection != 0) store.AddProductToCart(idList[productSelection - 1]);
                                             }
                                             break;
@@ -115,11 +115,11 @@ namespace your_four_legged_child
                                                 store.PrintProductsByCategory(ProductTypes.accessories);
                                                 if (length > 0)
                                                 {
-                                                    Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.accessories));
+                                                    Menus.PrintProductRange(1, length);
                                                     Console.WriteLine("Selecciona un producto para agregar al carrito");
                                                 }
                                                 Console.WriteLine("0) Regresar");
-                                                productSelection = UserInput.Option(0, store.GetProductsByCategoryLength(ProductTypes.accessories));
+                                                productSelection = UserInput.Option(0, length);
                                                 if (productSelection != 0) store.AddProductToCart(idList[productSelection - 1]);
                                             }
                                             break;

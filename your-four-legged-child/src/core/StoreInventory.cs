@@ -123,15 +123,18 @@ namespace your_four_legged_child.src.core
         public string[] GetProductsIdByCategory(ProductTypes _category)
         {
             int length = GetProductsByCategoryLength(_category);
+            int count = 0;
             string[] ids = new string[length];
 
-            for (int i = 0; i < length; i++)
+            foreach (var product in products)
             {
-                if (products[i].GetProductType() == _category)
+                if (product.GetProductType() == _category)
                 {
-                    ids[i] = products[i].GetId();
+                    ids[count] = product.GetId();
+                    count++;
                 }
             }
+
             return ids;
         }
 
