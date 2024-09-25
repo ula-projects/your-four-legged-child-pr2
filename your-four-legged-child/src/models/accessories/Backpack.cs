@@ -2,19 +2,19 @@
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.utilities;
 
-namespace your_four_legged_child.src.models.care
+namespace your_four_legged_child.src.models.accessories
 {
-    internal class Beed : Product
+    internal class Backpack : Product
     {
         Custom Design;
         Custom PeetName;
 
-        public Beed(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
+        public Backpack(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
         {
             Design = new Custom("Diseño");
             PeetName = new Custom("Nombre Bordado");
         }
-        public Beed(Beed copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
+        public Backpack(Backpack copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
             Design = new Custom("Diseño");
             PeetName = new Custom("Nombre Bordado");
@@ -55,14 +55,14 @@ namespace your_four_legged_child.src.models.care
 
         public override bool Compare(Product _compareTo)
         {
-            if (_compareTo is Beed compareTo)
+            if (_compareTo is Backpack compareTo)
                 if (PeetName.GetValue() == compareTo.GetPeetName() && Design.GetValue() == compareTo.GetDesign()) return true;
             return false;
         }
 
         public override Product Clone()
         {
-            Beed newProduct = new Beed(this);
+            Backpack newProduct = new Backpack(this);
             return newProduct;
         }
     }

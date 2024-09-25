@@ -16,14 +16,14 @@ namespace your_four_legged_child.src.models.services
             Age = new Custom("Edad");
             Race = new Custom("Raza");
             SpecialNeeds = new Custom("Necesidades Especiales");
-            Species = new Custom("Animal");
+            Species = new Custom("Tipo de mascota");
         }
         public SpecialService(SpecialService copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
             Age = new Custom("Edad");
             Race = new Custom("Raza");
             SpecialNeeds = new Custom("Necesidades Especiales");
-            Species = new Custom("Animal");
+            Species = new Custom("Tipo de mascota");
         }
 
 

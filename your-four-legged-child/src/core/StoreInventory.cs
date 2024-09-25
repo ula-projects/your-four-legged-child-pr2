@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
+using your_four_legged_child.src.models.accessories;
 using your_four_legged_child.src.models.care;
 using your_four_legged_child.src.models.services;
 
@@ -12,6 +13,9 @@ namespace your_four_legged_child.src.core
 {
     internal partial class Store
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public void GenerateProducts()
         {
             products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
@@ -24,14 +28,11 @@ namespace your_four_legged_child.src.core
             products[7] = new SpecialService("vetappointment", "Consulta veterinaria", 25, "Todas", "Consulta veterinaria para tu mascota", ProductTypes.special);
             products[8] = new SpecialService("lodging", "Alojamiento", 15, "Todas", "Alojamiento por noche para tu mascota", ProductTypes.special);
             products[9] = new SpecialService("photoshot", "Sesion de fotos", 25, "Todas", "Sesion de fotos para tu mascota en estudio profesional - 10 fotos", ProductTypes.special);
-
-            //products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
-            //products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
-            //products[2] = new Beed("docbeedsm", "Cama para Perro", 30, "Perro", "Cama para perros - Pequena", ProductTypes.care);
-            //products[3] = new Beed("docbeedmd", "Cama para Perro", 40, "Perro", "Cama para perros - Mediana", ProductTypes.care);
-            //products[4] = new Beed("docbeedlg", "Cama para Perro", 40, "Perro", "Cama para perros - Grande", ProductTypes.care);
-            //products[5] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
-
+            products[10] = new Clothes("dogpinkdress", "Vestido rosado para perro", 50, "Perro", "Vestido rosado para perros pequenos", ProductTypes.accessories);
+            products[11] = new Product("cattiara", "Tiara para gatos", 25, "Gato", "Tiara dorada con perlas para gato", ProductTypes.accessories);
+            products[12] = new Backpack("petcarrier", "Transportador de mascotas mediano", 75, "Todas", "Transportador de mascotas personalizado", ProductTypes.accessories);
+            products[13] = new Cubs("coffecub", "Taza de cafe", 25, "Todas", "Taza de cafe impreso con una foto de tu mascota y una frase", ProductTypes.accessories);
+            products[14] = new Product("doglamp", "Lampara con forma de perro", 45, "Todas", "Lampara de mesa con forma de Golder Retriever", ProductTypes.accessories);
         }
 
         /// <summary>
