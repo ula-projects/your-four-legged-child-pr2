@@ -97,5 +97,12 @@ namespace your_four_legged_child.src.utilities
         {
             Console.WriteLine(_message.PadLeft(Console.WindowWidth));
         }
+
+        public static void PrintLeftRightText(string _left, string _right)
+        {
+
+            Console.Write(_left);
+            Console.WriteLine(_right.PadLeft(Console.WindowWidth - _left.Length));
+        }
     }
 }

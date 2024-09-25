@@ -17,8 +17,10 @@ namespace your_four_legged_child.src.core
         PaymentMethod paymentMethod;
         Product[] cart;
         float bcv;
+        int id;
+        DateTime date;
 
-        public Order(Client _client, Vendor _vendor, Currency _currency, PaymentMethod paymentMethod, float _bcv)
+        public Order(Client _client, Vendor _vendor, Currency _currency, PaymentMethod paymentMethod, float _bcv, int _id)
         {
             cart = new Product[0];
             this.client = _client;
@@ -26,6 +28,13 @@ namespace your_four_legged_child.src.core
             this.currency = _currency;
             this.paymentMethod = paymentMethod;
             this.bcv = _bcv;
+            this.id = _id;
+            date = DateTime.Now;
+        }
+
+        public void SetTime()
+        {
+            date = DateTime.Now;
         }
 
         public float GetCartTotal()
@@ -46,51 +55,68 @@ namespace your_four_legged_child.src.core
 
         public void PrintCart()
         {
-            string totalText = "SUBTTL: " + (currency == Currency.usd ? "USD " : "BS ") + (currency == Currency.usd ? GetCartTotal() : GetCartTotal() * bcv);
-            int count = 1;
-
             foreach (var product in cart)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(count + ")");
-                Console.ResetColor();
-                product.PrintProductDetails(currency, bcv);
-                count++;
+                product.PrintToBill(currency, bcv);
             }
-            Menus.PrintRightText(totalText);
-            Menus.PrintLine();
+
         }
 
         public void PrintBill()
         {
             bool specialTaxpayer = client.GetSpecialTaxpayer();
-            string currencyText = (currency == Currency.usd ? "USD " : "BS ");
-            float cartTotal = currency == Currency.bolivar ? GetCartTotal() * bcv : GetCartTotal();
-            float iva = cartTotal * 0.16f;
-            float finalTotal = specialTaxpayer ? cartTotal : cartTotal + iva;
+            float cartTotal = GetCartTotal() * bcv;
+            float biG = cartTotal * 0.16f;
+            float ivaG = biG * 0.16f;
+            float finalTotal = specialTaxpayer ? cartTotal : cartTotal + ivaG + biG;
 
             Menus.PrintHeader("Factura");
             Menus.PrintCenterText("SENIAT");
-            Menus.PrintCenterText("Tu hijo de 5 patas - Petshop");
-            Menus.PrintCenterText("Tienda Online");
-            Console.WriteLine("Cliente: ");
-            client.PrintDetails();
+            Menus.PrintCenterText("RIF J-145847563");
+            Menus.PrintCenterText("TU HIJO DE 4 PATAS C.A.");
+            Menus.PrintCenterText("AV 5 ZERPA, ENTRE CALLE 19-18");
+            Menus.PrintCenterText("LOCAL 4-85 NRO PB SECTOR CENTRO");
+            Menus.PrintCenterText("MERIDA MERIDA ZONAPOSTAL 5101");
             Menus.PrintLine();
-            Console.WriteLine("Vendedor: ");
-            vendor.PrintDetails();
-            Menus.PrintLine();
-            Menus.PrintCenterText("Detalles de tu compra");
+            Console.WriteLine("RIF/C.I: " + client.GetIdNumber());
+            Console.WriteLine("Razon Social: " + client.GetFullName());
+            Console.WriteLine("Direccion: " + client.GetResidence());
+            Console.WriteLine("Telefono: " + client.GetPhoneNumber());
+            Menus.PrintCenterText("FACTURA");
+            Menus.PrintLeftRightText("Factura:", id.ToString());
+            Menus.PrintLeftRightText("Fecha:", date.ToString());
             Menus.PrintLine();
             PrintCart();
-            Menus.PrintRightText("IVA G16.00%: " + currencyText + iva);
+            Menus.PrintLine();
+            Menus.PrintLeftRightText("SUBTIL:", ("Bs " + cartTotal));
+            Menus.PrintLeftRightText("EXENTO:", "Bs 0.00");
+            Menus.PrintLeftRightText("BI G(16.00%)", biG.ToString());
+            Menus.PrintLeftRightText("IVA G (16.00%)", ivaG.ToString());
+            Menus.PrintLine();
+
             if (currency == Currency.usd)
             {
-                float IGTF = finalTotal * 0.03f;
+                float BIIGTF = finalTotal * 0.03f;
+                float IGTF = BIIGTF * 0.3f;
+                finalTotal += BIIGTF;
                 finalTotal += IGTF;
-                Menus.PrintRightText("IGTF 3.00%: " + currencyText + IGTF);
+                Menus.PrintLeftRightText("BI IGTF (3.00%): ", ("Bs " + BIIGTF));
+                Menus.PrintLeftRightText("IGTF (3.00%): ", ("Bs " + IGTF));
+                Menus.PrintLine();
             }
-            Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
+            if (paymentMethod == PaymentMethod.card)
+            {
+                Menus.PrintLeftRightText("T.DEBITO", "Bs" + finalTotal);
+            }
+            else
+            {
+                Menus.PrintLeftRightText("EFECTIVO", "Bs" + finalTotal);
+            }
             Menus.PrintLine();
+            Menus.PrintLeftRightText("TOTAL: ", "Bs " + finalTotal);
+            Menus.PrintLine();
+            Menus.PrintCenterText("Emitido por: 'TU HIJO DE 4 PATAS C.A.'");
+
             Console.ForegroundColor = ConsoleColor.Green;
             Menus.PrintLine();
             Menus.PrintCenterText("Gracias por su compra");

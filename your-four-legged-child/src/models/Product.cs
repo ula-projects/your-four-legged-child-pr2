@@ -135,6 +135,12 @@ namespace your_four_legged_child.src.models
             Menus.PrintLine();
         }
 
+        public void PrintToBill(Currency _currency, float _bcv)
+        {
+            Console.WriteLine(this.count + "x Bs" + (this.price * _bcv));
+            Menus.PrintLeftRightText(this.name, ("Bs " + (this.count * this.price * _bcv).ToString()));
+        }
+
         /// <summary>
         /// Comparar Producto
         /// </summary>

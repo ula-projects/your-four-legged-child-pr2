@@ -265,7 +265,7 @@ namespace your_four_legged_child
                                     break;
                             }
 
-                            Order order = new Order(client, vendor, currency, paymentMethod, bcv);
+                            Order order = new Order(client, vendor, currency, paymentMethod, bcv, 1);
 
                             store.PrintOrderDetails(client, currency);
 
