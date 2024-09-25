@@ -67,16 +67,22 @@ namespace your_four_legged_child.src.core
         public void PrintOrderDetails(Client _client, Currency _currency)
         {
             bool specialTaxpayer = _client.GetSpecialTaxpayer();
+            string currencyText = (_currency == Currency.usd ? "USD " : "BS ");
             float cartTotal = _currency == Currency.bolivar ? GetCartTotal() * bcv : GetCartTotal();
             float iva = cartTotal * 0.16f;
             float finalTotal = specialTaxpayer ? cartTotal : cartTotal + iva;
-            string icon = _currency == Currency.usd ? "$" : "bs";
             Menus.PrintHeader("Check Out");
             Menus.PrintCenterText("Detalles de tu compra");
             Menus.PrintLine();
-            PrintCart();
-            Menus.PrintRightText("I.V.A: " + iva);
-            Menus.PrintRightText("Total a pagar: " + icon + finalTotal);
+            PrintCart(_currency);
+            Menus.PrintRightText("IVA G16.00%: " + currencyText + iva);
+            if (_currency == Currency.usd)
+            {
+                float IGTF = finalTotal * 0.03f;
+                finalTotal += IGTF;
+                Menus.PrintRightText("IGTF 3.00%: " + currencyText + IGTF);
+            }
+            Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
             Menus.PrintLine();
         }
 

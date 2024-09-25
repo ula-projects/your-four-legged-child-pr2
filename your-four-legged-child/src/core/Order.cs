@@ -91,7 +91,10 @@ namespace your_four_legged_child.src.core
             }
             Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
             Menus.PrintLine();
-
+            Console.ForegroundColor = ConsoleColor.Green;
+            Menus.PrintLine();
+            Menus.PrintCenterText("Gracias por su compra");
+            Menus.PrintLine();
         }
     }
 }

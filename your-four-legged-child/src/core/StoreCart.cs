@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
 using your_four_legged_child.src.utilities;
 
@@ -157,6 +158,22 @@ namespace your_four_legged_child.src.core
                 count++;
             }
             Console.WriteLine(totalText.PadLeft(Console.WindowWidth));
+            Menus.PrintLine();
+        }
+        public void PrintCart(Currency _currency)
+        {
+            string totalText = "SUBTTL: " + (_currency == Currency.usd ? "USD " : "BS ") + (_currency == Currency.usd ? GetCartTotal() : GetCartTotal() * bcv);
+            int count = 1;
+
+            foreach (var product in cart)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(count + ")");
+                Console.ResetColor();
+                product.PrintProductDetails(_currency, bcv);
+                count++;
+            }
+            Menus.PrintRightText(totalText);
             Menus.PrintLine();
         }
     }
