@@ -84,15 +84,15 @@ namespace your_four_legged_child.src.core
             Menus.PrintCenterText("Detalles de tu compra");
             Menus.PrintLine();
             PrintCart(_currency);
-            Menus.PrintRightText("IVA G16.00%: " + currencyText + iva);
-            if (_currency == Currency.usd)
-            {
-                float IGTF = finalTotal * 0.03f;
-                finalTotal += IGTF;
-                Menus.PrintRightText("IGTF 3.00%: " + currencyText + IGTF);
-            }
-            Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
-            Menus.PrintLine();
+            //Menus.PrintRightText("IVA G16.00%: " + currencyText + iva);
+            //if (_currency == Currency.usd)
+            //{
+            //    float IGTF = finalTotal * 0.03f;
+            //    finalTotal += IGTF;
+            //    Menus.PrintRightText("IGTF 3.00%: " + currencyText + IGTF);
+            //}
+            //Menus.PrintRightText("Total a pagar: " + currencyText + finalTotal);
+            //Menus.PrintLine();
         }
 
         public void Payment(Order _order)
