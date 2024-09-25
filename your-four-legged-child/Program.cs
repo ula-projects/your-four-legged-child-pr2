@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.core;
 using your_four_legged_child.src.enums;
+using your_four_legged_child.src.models;
 using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child
@@ -13,15 +14,23 @@ namespace your_four_legged_child
     {
         static void Main(string[] args)
         {
-            Store store = new Store();
+            float bcv = 36.55f;
+            Store store = new Store(bcv);
             int mainState = 1;
 
             // Program While
             while (mainState != 0)
             {
+                int cartLength = store.GetCartLength();
                 Menus.MainMenu(store.GetCartCount());
-
-                mainState = UserInput.Option(0, 3);
+                if (cartLength > 0)
+                {
+                    mainState = UserInput.Option(0, 3);
+                }
+                else
+                {
+                    mainState = UserInput.Option(0, 2);
+                }
 
                 switch (mainState)
                 {
@@ -142,6 +151,111 @@ namespace your_four_legged_child
                                 if (CartMenuState != 0)
                                     store.UpdateProduct(CartMenuState - 1);
                             }
+                            break;
+                        }
+                    case 3:
+                        {
+                            Menus.PrintHeader("Check Out");
+                            Client client = null;
+                            Vendor vendor = null;
+                            Currency currency = Currency.bolivar;
+                            PaymentMethod paymentMethod = PaymentMethod.card;
+
+                            while (client == null)
+                            {
+                                Console.WriteLine("Introduce la cedula del cliente");
+                                int clientID = UserInput.Number(1);
+                                client = store.GetClient(clientID);
+                                if (client == null)
+                                {
+                                    Menus.DeleteLastLine(2);
+                                    Console.WriteLine("Cliente no existe\n1) Crear Cliente\n0) Introducir cedula\n");
+                                    int option = UserInput.Option(0, 1);
+
+                                    if (option == 1)
+                                    {
+                                        Menus.DeleteLastLine(5);
+                                        string name;
+                                        string lastName;
+                                        string phoneNumber;
+                                        string residence;
+                                        bool specialTaxpayer;
+
+                                        Console.WriteLine("Nombre: ");
+                                        name = UserInput.String();
+                                        Console.WriteLine("Apellido: ");
+                                        lastName = UserInput.String();
+                                        Console.WriteLine("Numero de telefono: ");
+                                        phoneNumber = UserInput.String();
+                                        Console.WriteLine("Residencia: ");
+                                        residence = UserInput.String();
+                                        Console.WriteLine("Contribuyente especial:\n1) si\n2) no");
+                                        specialTaxpayer = UserInput.Bool(1, 2);
+                                        client = new Client(name, lastName, clientID, phoneNumber, residence, specialTaxpayer);
+                                        store.AddNewClient(client);
+                                        Menus.DeleteLastLine(12);
+                                    }
+                                    else
+                                    {
+                                        Menus.DeleteLastLine(5);
+                                    }
+                                }
+                            }
+                            client.PrintDetails();
+                            Console.ReadKey();
+
+                            Menus.PrintHeader("Check Out");
+                            store.PrintVendors();
+                            Console.WriteLine("Selecciona un vendedor:");
+                            int vendorPos = UserInput.Option(1, 3);
+                            vendor = store.GetVendor(vendorPos - 1);
+
+                            Menus.PrintHeader("Check Out");
+                            vendor.PrintDetails();
+                            Console.ReadKey();
+
+                            Menus.PrintHeader("Check Out");
+                            Console.WriteLine("\nSelecciona la moneda de pago\n1) Bolivares\n2) Dolares");
+                            int currencySelected = UserInput.Option(1, 2);
+
+                            switch (currencySelected)
+                            {
+                                case 1:
+                                    currency = Currency.bolivar;
+                                    break;
+                                case 2:
+                                    currency = Currency.usd;
+                                    break;
+                            }
+
+                            Menus.PrintHeader("Check Out");
+                            Console.WriteLine("\nSelecciona la moneda de pago\n1) Efectivo\n2) Tarjeta");
+                            int paymentSelected = UserInput.Option(1, 2);
+
+                            switch (currencySelected)
+                            {
+                                case 1:
+                                    paymentMethod = PaymentMethod.cash;
+                                    break;
+                                case 2:
+                                    paymentMethod = PaymentMethod.card;
+                                    break;
+                            }
+
+                            Order order = new Order(client, vendor, currency, paymentMethod, bcv);
+
+                            store.PrintOrderDetails(client, currency);
+
+                            Console.WriteLine("1) Pagar\n2) Cancelar\n");
+                            int finalOption = UserInput.Option(1, 2);
+
+                            if (finalOption == 1)
+                            {
+                                store.Payment(order);
+                            }
+
+
+                            Console.ReadKey();
                             break;
                         }
                 }

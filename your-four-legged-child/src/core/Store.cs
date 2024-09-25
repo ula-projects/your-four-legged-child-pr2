@@ -8,107 +8,92 @@ namespace your_four_legged_child.src.core
 {
     internal partial class Store
     {
+        float bcv;
         Product[] products;
         Product[] cart;
+        Client[] clients;
+        //Person currentClient;
+        Vendor[] vendors;
+        //Person[] currentVendor;
+        Order[] orders;
 
-        public Store()
+        public Store(float _bcv)
         {
             products = new Product[6];
             cart = new Product[0];
+            clients = new Client[0];
+            vendors = new Vendor[3];
+            orders = new Order[0];
             GenerateProducts();
-        }
-        public void GenerateProducts()
-        {
-            products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
-            products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
-            products[2] = new Beed("docbeedsm", "Cama para Perro", 30, "Perro", "Cama para perros - Pequena", ProductTypes.care);
-            products[3] = new Beed("docbeedmd", "Cama para Perro", 40, "Perro", "Cama para perros - Mediana", ProductTypes.care);
-            products[4] = new Beed("docbeedlg", "Cama para Perro", 40, "Perro", "Cama para perros - Grande", ProductTypes.care);
-            products[5] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
-
+            GenerateVendors();
+            bcv = _bcv;
         }
 
-
-
-        //Imprime todos los Productos
-        public void PrintAllProducts()
+        public void GenerateVendors()
         {
-            int count = 1;
-            foreach (var product in products)
+            vendors[0] = new Vendor("Nerio", "Balza", 27777348, "0424-7319042", "Santa Juana, Merida");
+            vendors[1] = new Vendor("Liber", "Avendano", 12345679, "0424-7319042", "Centro, Merida");
+            vendors[2] = new Vendor("Edwer", "Soret", 12345678, "0424-7319042", "Tovar, Merida");
+        }
+
+        public Vendor GetVendor(int i) => vendors[i];
+
+
+        public void PrintVendors()
+        {
+            for (int i = 0; i < vendors.Length; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(count + ")");
+                Console.WriteLine(i + 1 + ")");
                 Console.ResetColor();
-                product.PrintProduct();
-                count++;
+                vendors[i].PrintDetails();
             }
         }
-
-        // Imprime los productos de una categoria
-        public void PrintProductsByCategory(ProductTypes _category)
+        public Client GetClient(int _idNumber)
         {
-            int count = 0;
-            foreach (var product in products)
+            foreach (var client in clients)
             {
-                if (product.GetProductType() == _category)
-                {
-                    count++;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine(count + ")");
-                    Console.ResetColor();
-
-                    product.PrintProduct();
-                }
+                if (client.GetIdNumber() == _idNumber) return client;
             }
-            if (count == 0)
-            {
-                string message = "0 productos encontrados";
-                Console.WriteLine(message.PadLeft(Console.WindowWidth / 2 + message.Length / 2));
-            };
+            return null;
         }
 
-        public int GetProductsLength()
+        public void AddNewClient(Client _client)
         {
-            return products.Length;
+            Array.Resize(ref clients, clients.Length + 1);
+            clients[clients.Length - 1] = _client;
         }
 
-        public int GetProductsByCategoryLength(ProductTypes _category)
+
+
+        public void PrintOrderDetails(Client _client, Currency _currency)
         {
-            int count = 0;
-            foreach (var product in products)
+            bool specialTaxpayer = _client.GetSpecialTaxpayer();
+            float cartTotal = _currency == Currency.bolivar ? GetCartTotal() * bcv : GetCartTotal();
+            float iva = cartTotal * 0.16f;
+            float finalTotal = specialTaxpayer ? cartTotal : cartTotal + iva;
+            string icon = _currency == Currency.usd ? "$" : "bs";
+            Menus.PrintHeader("Check Out");
+            Menus.PrintCenterText("Detalles de tu compra");
+            Menus.PrintLine();
+            PrintCart();
+            Menus.PrintRightText("I.V.A: " + iva);
+            Menus.PrintRightText("Total a pagar: " + icon + finalTotal);
+            Menus.PrintLine();
+        }
+
+        public void Payment(Order _order)
+        {
+            foreach (var product in cart)
             {
-                if (product.GetProductType() == _category)
-                {
-                    count++;
-                }
+                _order.AddProductToCart(product);
             }
-            return count;
+            Array.Resize(ref cart, 0);
+            Array.Resize(ref orders, orders.Length + 1);
+            orders[orders.Length - 1] = _order;
+            _order.PrintBill();
+
         }
 
-        public string[] GetProductsId()
-        {
-            int length = GetProductsLength();
-            string[] ids = new string[length];
-            for (int i = 0; i < length; i++)
-            {
-                ids[i] = products[i].GetId();
-            }
-            return ids;
-        }
-
-        public string[] GetProductsIdByCategory(ProductTypes _category)
-        {
-            int length = GetProductsByCategoryLength(_category);
-            string[] ids = new string[length];
-
-            for (int i = 0; i < length; i++)
-            {
-                if (products[i].GetProductType() == _category)
-                {
-                    ids[i] = products[i].GetId();
-                }
-            }
-            return ids;
-        }
     }
 }

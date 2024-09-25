@@ -111,8 +111,7 @@ namespace your_four_legged_child.src.core
                     else
                     {
                         Array.Resize(ref cart, this.cart.Length + 1);
-                        int newPos = this.cart.Length - 1;
-                        cart[newPos] = newProduct;
+                        cart[this.cart.Length - 1] = newProduct;
                     }
                     Menus.PrintHeader("Agregado Exitosamente al carrito");
                     Console.ReadKey();

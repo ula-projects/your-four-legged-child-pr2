@@ -42,6 +42,15 @@ namespace your_four_legged_child.src.utilities
             return value;
         }
 
+        public static bool Bool(int _true, int _false)
+        {
+            int value = Option(_true, _false);
+            Menus.DeleteLastLine();
+            Menus.PrintArrow(1);
+            Console.WriteLine(value);
+            return value == _true ? true : false;
+        }
+
         /// <summary>
         /// 
         /// </summary>

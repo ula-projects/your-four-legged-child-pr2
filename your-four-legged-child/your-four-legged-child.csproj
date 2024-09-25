@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\core\Order.cs" />
     <Compile Include="src\core\StoreCart.cs" />
     <Compile Include="src\core\StoreInventory.cs" />
+    <Compile Include="src\enums\Order.cs" />
     <Compile Include="src\enums\Product.cs" />
     <Compile Include="src\models\care\Toys.cs" />
     <Compile Include="src\models\Custom.cs" />

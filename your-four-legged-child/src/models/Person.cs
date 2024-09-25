@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace your_four_legged_child.src.core
+namespace your_four_legged_child.src.models
 {
     internal class Person
     {
@@ -30,7 +30,14 @@ namespace your_four_legged_child.src.core
         public string GetFullName() => this.name + " " + this.lastName;
         public int GetIdNumber() => this.idNumber;
         public string GetPhoneNumber() => this.phoneNumber;
-        public string GetRisidence() => this.residence;
+        public string GetResidence() => this.residence;
 
+        public virtual void PrintDetails()
+        {
+            Console.WriteLine("Nombre: " + GetFullName());
+            Console.WriteLine("Cedula: " + this.idNumber);
+            Console.WriteLine("Telefono: " + this.phoneNumber);
+            Console.WriteLine("Direccion: " + this.residence);
+        }
     }
 }

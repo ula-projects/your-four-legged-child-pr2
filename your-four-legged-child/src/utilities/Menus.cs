@@ -18,7 +18,9 @@ namespace your_four_legged_child.src.utilities
             PrintHeader(message);
             Console.WriteLine(cart.PadLeft(Console.WindowWidth));
             Console.ResetColor();
-            Console.WriteLine("\n1) Ver Productos\n2) Ver Carrito\n3) Ver Vendedores\n0) Salir\n");
+            Console.WriteLine("\n1) Ver Productos\n2) Ver Carrito");
+            if (_cart > 0) Console.WriteLine("3) Comprar");
+            Console.WriteLine("0) Salir\n");
         }
 
         public static void ProductMenu()
@@ -85,6 +87,15 @@ namespace your_four_legged_child.src.utilities
                 Console.Write(new string(' ', Console.WindowWidth));
                 Console.SetCursorPosition(0, Console.CursorTop);
             }
+        }
+
+        public static void PrintCenterText(string _message)
+        {
+            Console.WriteLine(_message.PadLeft(Console.WindowWidth / 2 + _message.Length / 2));
+        }
+        public static void PrintRightText(string _message)
+        {
+            Console.WriteLine(_message.PadLeft(Console.WindowWidth));
         }
     }
 }
