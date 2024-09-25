@@ -99,12 +99,10 @@ namespace your_four_legged_child.src.models
         /// </summary>
         public virtual void PrintProductDetails()
         {
-            string countText = "Cantidad: " + this.count;
-
             PrintProduct();
             Menus.DeleteLastLine();
             Console.WriteLine("Animal: " + animal);
-            Console.WriteLine(countText.PadLeft(Console.WindowWidth));
+            Menus.PrintRightText("Cantidad: " + this.count);
             Menus.PrintLine();
         }
 

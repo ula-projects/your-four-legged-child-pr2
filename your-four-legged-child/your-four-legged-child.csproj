@@ -59,6 +59,7 @@
     <Compile Include="src\models\care\Beed.cs" />
     <Compile Include="src\models\care\Collars.cs" />
     <Compile Include="src\models\care\Food.cs" />
+    <Compile Include="src\models\services\SpecialService.cs" />
     <Compile Include="src\models\Vendor.cs" />
     <Compile Include="src\utilities\Menus.cs" />
     <Compile Include="src\utilities\UserInput.cs" />
@@ -69,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\models\accessories\" />
-    <Folder Include="src\models\services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

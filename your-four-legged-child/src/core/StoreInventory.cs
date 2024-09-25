@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using your_four_legged_child.src.enums;
 using your_four_legged_child.src.models;
 using your_four_legged_child.src.models.care;
+using your_four_legged_child.src.models.services;
 
 namespace your_four_legged_child.src.core
 {
@@ -18,6 +19,11 @@ namespace your_four_legged_child.src.core
             products[2] = new Toys("dogtoychewy", "Jueguete masticable para Perro", 15, "Perro", "Jueguete de gota masticable para perros - Razas Mediana - Grande", ProductTypes.care);
             products[3] = new Collars("dogharness", "Pechera para perro", 20, "Perro", "Perchera para Perro - Razas Pequena - Mediana", ProductTypes.care);
             products[4] = new Product("alltoothbrush", "Cepillo de dientes para animales", 3, "Todos", "Cepillo de dientes para todo tipo de animal", ProductTypes.care);
+            products[5] = new SpecialService("training", "Entrenamiento personalizado", 40, "Todas", "Entrenamiento para tu mascota", ProductTypes.special);
+            products[6] = new SpecialService("grooming", "Peliqueria para mascotas", 20, "Todas", "Peliqueria para tu mascota", ProductTypes.special);
+            products[7] = new SpecialService("vetappointment", "Consulta veterinaria", 25, "Todas", "Consulta veterinaria para tu mascota", ProductTypes.special);
+            products[8] = new SpecialService("lodging", "Alojamiento", 15, "Todas", "Alojamiento por noche para tu mascota", ProductTypes.special);
+            products[9] = new SpecialService("photoshot", "Sesion de fotos", 25, "Todas", "Sesion de fotos para tu mascota en estudio profesional - 10 fotos", ProductTypes.special);
 
             //products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
             //products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);

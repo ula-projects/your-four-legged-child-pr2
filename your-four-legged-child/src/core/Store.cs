@@ -19,7 +19,7 @@ namespace your_four_legged_child.src.core
 
         public Store(float _bcv)
         {
-            products = new Product[5];
+            products = new Product[15];
             cart = new Product[0];
             clients = new Client[0];
             vendors = new Vendor[3];

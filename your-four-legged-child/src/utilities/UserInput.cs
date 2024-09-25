@@ -76,7 +76,7 @@ namespace your_four_legged_child.src.utilities
                 Menus.PrintArrow(1);
                 Console.WriteLine(value);
             }
-            return value;
+            return value.ToLower();
         }
 
         /// <summary>
