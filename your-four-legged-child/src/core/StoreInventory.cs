@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using your_four_legged_child.src.enums;
+using your_four_legged_child.src.models;
 using your_four_legged_child.src.models.care;
 
 namespace your_four_legged_child.src.core
@@ -13,11 +14,17 @@ namespace your_four_legged_child.src.core
         public void GenerateProducts()
         {
             products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
-            products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
-            products[2] = new Beed("docbeedsm", "Cama para Perro", 30, "Perro", "Cama para perros - Pequena", ProductTypes.care);
-            products[3] = new Beed("docbeedmd", "Cama para Perro", 40, "Perro", "Cama para perros - Mediana", ProductTypes.care);
-            products[4] = new Beed("docbeedlg", "Cama para Perro", 40, "Perro", "Cama para perros - Grande", ProductTypes.care);
-            products[5] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
+            products[1] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
+            products[2] = new Toys("dogtoychewy", "Jueguete masticable para Perro", 15, "Perro", "Jueguete de gota masticable para perros - Razas Mediana - Grande", ProductTypes.care);
+            products[3] = new Collars("dogharness", "Pechera para perro", 20, "Perro", "Perchera para Perro - Razas Pequena - Mediana", ProductTypes.care);
+            products[4] = new Product("alltoothbrush", "Cepillo de dientes para animales", 3, "Todos", "Cepillo de dientes para todo tipo de animal", ProductTypes.care);
+
+            //products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
+            //products[1] = new Food("catfood1kg", "Purina Cat Chow 1kg", 5, "Gato", "Comida para Gato de 1kg", ProductTypes.care);
+            //products[2] = new Beed("docbeedsm", "Cama para Perro", 30, "Perro", "Cama para perros - Pequena", ProductTypes.care);
+            //products[3] = new Beed("docbeedmd", "Cama para Perro", 40, "Perro", "Cama para perros - Mediana", ProductTypes.care);
+            //products[4] = new Beed("docbeedlg", "Cama para Perro", 40, "Perro", "Cama para perros - Grande", ProductTypes.care);
+            //products[5] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
 
         }
 

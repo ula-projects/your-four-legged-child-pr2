@@ -59,7 +59,6 @@
     <Compile Include="src\models\care\Beed.cs" />
     <Compile Include="src\models\care\Collars.cs" />
     <Compile Include="src\models\care\Food.cs" />
-    <Compile Include="src\models\care\HygieneAccessories.cs" />
     <Compile Include="src\models\Vendor.cs" />
     <Compile Include="src\utilities\Menus.cs" />
     <Compile Include="src\utilities\UserInput.cs" />

@@ -65,7 +65,7 @@ namespace your_four_legged_child
                                         {
                                             int productSelection = 1;
                                             string[] idList = store.GetProductsIdByCategory(ProductTypes.care);
-                                            int length = store.GetProductsByCategoryLength(ProductTypes.special);
+                                            int length = store.GetProductsByCategoryLength(ProductTypes.care);
 
                                             while (productSelection != 0)
                                             {
@@ -73,11 +73,11 @@ namespace your_four_legged_child
                                                 store.PrintProductsByCategory(ProductTypes.care);
                                                 if (length > 0)
                                                 {
-                                                    Menus.PrintProductRange(1, store.GetProductsByCategoryLength(ProductTypes.special));
+                                                    Menus.PrintProductRange(1, length);
                                                     Console.WriteLine("Selecciona un producto para agregar al carrito");
                                                 }
                                                 Console.WriteLine("0) Regresar");
-                                                productSelection = UserInput.Option(0, store.GetProductsByCategoryLength(ProductTypes.care));
+                                                productSelection = UserInput.Option(0, length);
                                                 if (productSelection != 0) store.AddProductToCart(idList[productSelection - 1]);
                                             }
                                             break;
