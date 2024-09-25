@@ -31,6 +31,7 @@ namespace your_four_legged_child.src.models.services
         public string GetAge() => Age.GetValue();
         public string GetRace() => Race.GetValue();
         public string GetSpecialNeeds() => SpecialNeeds.GetValue();
+        public string GetSpecies() => Species.GetValue();
 
         public override void PrintProductDetails()
         {
@@ -73,7 +74,7 @@ namespace your_four_legged_child.src.models.services
         public override bool Compare(Product _compareTo)
         {
             if (_compareTo is SpecialService compareTo)
-                if (Age.GetValue() == compareTo.GetAge() && Race.GetValue() == compareTo.GetRace() && SpecialNeeds.GetValue() == compareTo.GetSpecialNeeds())
+                if (Age.GetValue() == compareTo.GetAge() && Race.GetValue() == compareTo.GetRace() && SpecialNeeds.GetValue() == compareTo.GetSpecialNeeds() && Species.GetValue() == compareTo.GetSpecies())
                     return true;
             return false;
         }
