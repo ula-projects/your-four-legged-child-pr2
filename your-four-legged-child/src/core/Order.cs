@@ -9,7 +9,7 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-	/*
+    /*
     TDA ORDEN
 
     - Propiedades:
@@ -31,7 +31,7 @@ namespace your_four_legged_child.src.core
     Vacío       ImprimirFactura()
 
      */
-	internal class Order
+    internal class Order
     {
         Client client;
         Vendor vendor;
@@ -51,11 +51,6 @@ namespace your_four_legged_child.src.core
             this.paymentMethod = paymentMethod;
             this.bcv = _bcv;
             this.id = _id;
-            date = DateTime.Now;
-        }
-
-        public void SetTime()
-        {
             date = DateTime.Now;
         }
 
