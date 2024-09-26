@@ -4,7 +4,25 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.services
 {
-    internal class SpecialService : Product
+	/*
+    TDA SERVICIOESPECIAL (-> Hereda de Producto)
+    
+    - Compuesto por:
+    Personalizable
+
+    - Propiedades
+    Personalizable          NombreMascota
+
+    - Métodos
+                            ServicioEspecial(...)
+                            ServicioEspecial(ServicioEspecial copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class SpecialService : Product
     {
         Custom Age;
         Custom Race;

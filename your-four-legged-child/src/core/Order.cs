@@ -12,6 +12,12 @@ namespace your_four_legged_child.src.core
     /*
     TDA ORDEN
 
+    - Compuesta por:
+    Cliente
+    Vendedor
+    Moneda (enum)
+    MetodoDePago (enum)
+
     - Propiedades:
     Cliente             cliente
     Vendedor            vendedor
@@ -24,7 +30,6 @@ namespace your_four_legged_child.src.core
 
     -Métodos
                 Orden(Cliente, Vendedor, Moneda, MetodoDePago, flotante dolarBCV, entero ID)
-    Vacío       FijarFecha()
     Flotante    CalcularTotalDelCarrito()
     Vacío       AggProductoAlCarrito(Producto)
     Vacío       ImprimirCarrito()

@@ -8,6 +8,14 @@ namespace your_four_legged_child.src.core
 {
 	/*
     TDA TIENDA
+    
+    - Descripción: Clase _principal_ que se encarga de manejar productos, las ordenes, los vendedores, los clientes y las ventas
+
+    - Compuesta por:
+    Producto
+    Cliente
+    Vendedor
+    Orden
 
     - Propiedades
     Flotante                bcv

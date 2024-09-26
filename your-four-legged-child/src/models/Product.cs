@@ -22,15 +22,15 @@ namespace your_four_legged_child.src.models
 
     - Métodos
                         Producto(ID, nombre, precio, animal, detalles, tipo)
-    vacío               Personalizar()
-    vacío               Imprimir()
-    (virtual) vacío     ImprimirDetalles()  //Imprime todo, tanto datos básicos como personalización
-    vacío               Imprimir(Moneda, Flotante DolarBCV) //Imprime el precio en diferentes monedas
-    (virtual) vacío     ImprimirDetalles(Moneda, Flotante DolarBCV)
-    vacío               ImprimirParaFactura() //Imprime los datos básicos para la factura
-    vacío               ImprimirParaFactura(Moneda, Flotante DolarBCV)
-    (virtual) vacío     Actualizar()
-    boolean             Comparar(Producto aComparar)
+    Vacío               Personalizar()
+    Vacío               Imprimir()
+    (Virtual) vacío     ImprimirDetalles()  //Imprime todo, tanto datos básicos como personalización
+    Vacío               Imprimir(Moneda, Flotante DolarBCV) //Imprime el precio en diferentes monedas
+    (Virtual) vacío     ImprimirDetalles(Moneda, Flotante DolarBCV)
+    Vacío               ImprimirParaFactura() //Imprime los datos básicos para la factura
+    Vacío               ImprimirParaFactura(Moneda, Flotante DolarBCV)
+    (Virtual) vacío     Actualizar() //Actualiza la personalización
+    Boolean             Comparar(Producto aComparar)
     */
 
 	internal class Product

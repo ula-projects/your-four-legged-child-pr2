@@ -8,7 +8,23 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-    internal class Collars : Product
+	/*
+    TDA COLLAR (-> Hereda de Producto)
+    
+    - Propiedades
+    Personalizable          NombreGrabado
+    Personalizable          NumTlfGrabado
+
+    - Métodos
+                            Collar(...)
+                            Collar(Collar copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class Collars : Product
     {
         Custom EngravedName;
         Custom EngravedPhoneNumber;

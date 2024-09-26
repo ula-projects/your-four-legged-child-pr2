@@ -4,7 +4,27 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-    internal class Food : Product
+	/*
+    TDA COMIDA (-> Hereda de Producto)
+    
+    - Compuesto por:
+    Personalizable
+
+    - Propiedades
+    Personalizable          Edad
+    Personalizable          Raza
+    Personalizable          NecesidadesEspeciales
+
+    - Métodos
+                            Comida(...)
+                            Comida(Comida copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class Food : Product
     {
         Custom Age;
         Custom Race;

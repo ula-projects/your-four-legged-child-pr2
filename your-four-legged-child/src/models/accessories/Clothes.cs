@@ -4,7 +4,25 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.accessories
 {
-    internal class Clothes : Product
+	/*
+    TDA ROPA (-> Hereda de Producto)
+
+    - Compuesto por:
+    Personalizable
+
+    - Propiedades
+    Personalizable          NombreMascota
+
+    - Métodos
+                            Ropa(...)
+                            Ropa(Ropa copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class Clothes : Product
     {
         Custom PeetName;
 

@@ -4,7 +4,26 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-    internal class Beed : Product
+	/*
+    TDA CAMA (-> Hereda de Producto)
+    
+    - Compuesto por:
+    Personalizable
+
+    - Propiedades
+    Personalizable          Diseño
+    Personalizable          NombreMascota
+
+    - Métodos
+                            Cama(...)
+                            Cama(Cama copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class Beed : Product
     {
         Custom Design;
         Custom PeetName;

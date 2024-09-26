@@ -8,7 +8,25 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.accessories
 {
-    internal class Cubs : Product
+	/*
+    TDA TAZA (-> Hereda de Producto)
+    
+    - Compuesto por:
+    Personalizable
+
+    - Propiedades
+    Personalizable          Frase
+
+    - Métodos
+                            Taza(...)
+                            Taza(Taza copia)
+    (Sobrescrito) Vacío     ImprimirDetalles()
+    (Sobrescrito) Vacío     Personalizar()
+    (Sobrescrito) Vacío     Actualizar()
+    (Sobrescrito) Boolean   Comparar(Producto aComparar)
+     */
+
+	internal class Cubs : Product
     {
         Custom Phrase;
 
