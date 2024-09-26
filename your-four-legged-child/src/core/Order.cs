@@ -9,7 +9,29 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-    internal class Order
+	/*
+    TDA ORDEN
+
+    - Propiedades:
+    Cliente             cliente
+    Vendedor            vendedor
+    Moneda              moneda
+    MétodoDePago        pago
+    Array de Productos  carrito
+    Flotante            dolarBCV
+    Entero              ID
+    Fecha               fecha
+
+    -Métodos
+                Orden(Cliente, Vendedor, Moneda, MetodoDePago, flotante dolarBCV, entero ID)
+    Vacío       FijarFecha()
+    Flotante    CalcularTotalDelCarrito()
+    Vacío       AggProductoAlCarrito(Producto)
+    Vacío       ImprimirCarrito()
+    Vacío       ImprimirFactura()
+
+     */
+	internal class Order
     {
         Client client;
         Vendor vendor;

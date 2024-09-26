@@ -10,7 +10,7 @@ namespace your_four_legged_child.src.models
     TDA PERSONALIZABLE
 
     - Propiedades
-    C. de caracteres    nombre
+    C. de caracteres    etiqueta
     C. de caracteres    valor
 
     - Métodos

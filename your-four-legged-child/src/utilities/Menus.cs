@@ -9,6 +9,10 @@ using your_four_legged_child.src.models;
 
 namespace your_four_legged_child.src.utilities
 {
+    /// <summary>
+    /// Clase auxiliar para las funciones la mayoría de los menús 
+    /// (en ningún momento se estancia)
+    /// </summary>
     public static class Menus
     {
         public static void MainMenu(int _cart = 0)

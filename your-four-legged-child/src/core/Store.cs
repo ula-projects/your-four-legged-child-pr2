@@ -6,7 +6,31 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-    internal partial class Store
+	/*
+    TDA TIENDA
+
+    - Propiedades
+    Flotante                bcv
+    Array de Productos      productos //Productos disponibles en la tienda
+    Array de Productos      carrito //"Carrito" con las cosas que esta comprando la persona
+    Array de Clientes       clientes //Clientes registrados
+    Array de Vendedores     vendedores //Vendedores registrados
+    Array de Ordenes        oredenes //Las ventas realizadas
+
+    - Métodos
+                            Store(flotante DolarBCV) //Instancia todos los datos internos, y hay que pasarle el precio del dolar
+    Vacío                   GenerarVendedores() //Instanciar todos lo vendedores predeterminados
+    Vendedor                GetVendedor(entero pos) //pos es la posicion en el array
+    Vacío                   ImprimirVendedores()
+    Vacío                   AggNuevoVendedor(Vendedor v)
+    Cliente                 GetCliente(entero ID)
+    Vacío                   AggNuevoCliente(Cliente c)
+    Vacío                   ImprimirDetallesDeLaOrden(Cliente c, Moneda moneda)
+    Vacío                   Pagar(Orden x)
+     */
+
+
+	internal partial class Store
     {
         float bcv;
         Product[] products;

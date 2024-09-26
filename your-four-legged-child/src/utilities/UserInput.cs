@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.utilities
 {
-    public static class UserInput
+    /// <summary>
+    /// Clase auxiliar para las funciones básicas de entrada 
+    /// de datos del usuario con comprobación de errores de tipo
+    /// (en ningún momento se estancia)
+    /// </summary>
+	public static class UserInput
     {
+
         /// <summary>
         /// 
         /// </summary>

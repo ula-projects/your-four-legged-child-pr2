@@ -9,7 +9,20 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-    internal partial class Store
+
+	/*
+    TDA STORE (continuación)
+
+    - Métodos
+    Vacío   ActualizarProductoCArrito(entero pos) // pos es la posicion del producto en el carrito
+    Vacío   AggProductoAlCarrito(C. de caracteres ID)
+    Vacío   BorrarProductoDelCarrito(entero pos)
+    Vacío   ImprimirCarrito()
+    Vacío   ImprimirCarrito(Moneda moneda) // Puede imprimir en $ o Bs
+     */
+
+
+	internal partial class Store
     {
 
         /// <summary>

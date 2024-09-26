@@ -11,10 +11,23 @@ using your_four_legged_child.src.models.services;
 
 namespace your_four_legged_child.src.core
 {
-    internal partial class Store
+	/*
+    TDA STORE (continuación)
+
+    - Métodos:
+    Vacío                   GenerarProductos()
+    Vacío                   ImprimirTodosLosProductos()
+    Vacío                   ImprimirProductosPorCategoría(ProductTypes _category)
+    Entero                  LargoDelArrayProductos()
+    Entero                  CantidadDeProductosCategoría(ProductTypes _category)
+    Array de C. Caracteres  GetProductsId()
+    Array de C. Caracteres  GetProductsIdByCategory(ProductTypes _category)
+     */
+
+	internal partial class Store
     {
         /// <summary>
-        /// 
+        /// Instancia todos los productos que se van a utilizar en el programa y los pone el el array products[]
         /// </summary>
         public void GenerateProducts()
         {
