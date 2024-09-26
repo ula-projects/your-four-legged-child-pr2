@@ -4,7 +4,7 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-	/*
+    /*
     TDA JUGUETES (-> Hereda de Producto)
     
     - Compuesto por:
@@ -22,21 +22,21 @@ namespace your_four_legged_child.src.models.care
     (Sobrescrito) Boolean   Comparar(Producto aComparar)
      */
 
-	internal class Toys : Product
+    internal class Toys : Product
     {
-        Custom PeetName;
+        Custom PetName;
 
         public Toys(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
         {
-            PeetName = new Custom("Nombre Grabado");
+            PetName = new Custom("Nombre Grabado");
         }
         public Toys(Toys copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
-            PeetName = new Custom("Nombre Grabado");
+            PetName = new Custom("Nombre Grabado");
         }
 
         // Getters
-        public string GetPeetName() => PeetName.GetValue();
+        public string GetPetName() => PetName.GetValue();
 
         // Methods
 
@@ -45,7 +45,7 @@ namespace your_four_legged_child.src.models.care
             string countText = "Cantidad: " + base.GetCount();
             base.PrintProductDetails();
             Menus.DeleteLastLine(2);
-            PeetName.PrintField();
+            PetName.PrintField();
             Console.WriteLine(countText.PadLeft(Console.WindowWidth));
             Menus.PrintLine();
         }
@@ -53,20 +53,20 @@ namespace your_four_legged_child.src.models.care
         public override void Personalize()
         {
             Console.WriteLine("Cual es el nombre de tu mascota?");
-            PeetName.SetValue(UserInput.String());
+            PetName.SetValue(UserInput.String());
             base.Personalize();
         }
 
         public override void Update()
         {
             Console.WriteLine("Cual es el nombre de tu mascota?");
-            PeetName.SetValue(UserInput.String());
+            PetName.SetValue(UserInput.String());
         }
 
         public override bool Compare(Product _compareTo)
         {
             if (_compareTo is Toys compareTo)
-                if (PeetName.GetValue() == compareTo.GetPeetName()) return true;
+                if (PetName.GetValue() == compareTo.GetPetName()) return true;
             return false;
         }
 

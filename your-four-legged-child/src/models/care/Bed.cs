@@ -4,7 +4,7 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-	/*
+    /*
     TDA CAMA (-> Hereda de Producto)
     
     - Compuesto por:
@@ -23,24 +23,24 @@ namespace your_four_legged_child.src.models.care
     (Sobrescrito) Boolean   Comparar(Producto aComparar)
      */
 
-	internal class Beed : Product
+    internal class Bed : Product
     {
         Custom Design;
-        Custom PeetName;
+        Custom PetName;
 
-        public Beed(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
+        public Bed(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
         {
             Design = new Custom("Diseño");
-            PeetName = new Custom("Nombre Bordado");
+            PetName = new Custom("Nombre Bordado");
         }
-        public Beed(Beed copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
+        public Bed(Bed copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
             Design = new Custom("Diseño");
-            PeetName = new Custom("Nombre Bordado");
+            PetName = new Custom("Nombre Bordado");
         }
 
         // Getters
-        public string GetPeetName() => PeetName.GetValue();
+        public string GetPetName() => PetName.GetValue();
         public string GetDesign() => Design.GetValue();
 
         // Methods
@@ -49,7 +49,7 @@ namespace your_four_legged_child.src.models.care
         {
             base.PrintProductDetails();
             Menus.DeleteLastLine(2);
-            PeetName.PrintField();
+            PetName.PrintField();
             Design.PrintField();
             Menus.PrintRightText("Cantidad: " + base.GetCount());
             Menus.PrintLine();
@@ -60,7 +60,7 @@ namespace your_four_legged_child.src.models.care
             Console.WriteLine("Que tipo de diseño te gustaria? (Huesos, Huellas, etc.)");
             Design.SetValue(UserInput.String());
             Console.WriteLine("Cual es el nombre de tu mascota?");
-            PeetName.SetValue(UserInput.String());
+            PetName.SetValue(UserInput.String());
             base.Personalize();
         }
 
@@ -69,19 +69,19 @@ namespace your_four_legged_child.src.models.care
             Console.WriteLine("Que tipo de diseño te gustaria? (Huesos, Huellas, etc.)");
             Design.SetValue(UserInput.String());
             Console.WriteLine("Cual es el nombre de tu mascota?");
-            PeetName.SetValue(UserInput.String());
+            PetName.SetValue(UserInput.String());
         }
 
         public override bool Compare(Product _compareTo)
         {
-            if (_compareTo is Beed compareTo)
-                if (PeetName.GetValue() == compareTo.GetPeetName() && Design.GetValue() == compareTo.GetDesign()) return true;
+            if (_compareTo is Bed compareTo)
+                if (PetName.GetValue() == compareTo.GetPetName() && Design.GetValue() == compareTo.GetDesign()) return true;
             return false;
         }
 
         public override Product Clone()
         {
-            Beed newProduct = new Beed(this);
+            Bed newProduct = new Bed(this);
             return newProduct;
         }
     }

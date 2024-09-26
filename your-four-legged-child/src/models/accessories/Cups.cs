@@ -26,15 +26,15 @@ namespace your_four_legged_child.src.models.accessories
     (Sobrescrito) Boolean   Comparar(Producto aComparar)
      */
 
-	internal class Cubs : Product
+	internal class Cups : Product
     {
         Custom Phrase;
 
-        public Cubs(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
+        public Cups(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
         {
             Phrase = new Custom("Frase para imprimir");
         }
-        public Cubs(Cubs copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
+        public Cups(Cups copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
             Phrase = new Custom("Frase para imprimir");
         }
@@ -65,14 +65,14 @@ namespace your_four_legged_child.src.models.accessories
 
         public override bool Compare(Product _compareTo)
         {
-            if (_compareTo is Cubs compareTo)
+            if (_compareTo is Cups compareTo)
                 if (Phrase.GetValue() == compareTo.GetPhrase()) return true;
             return false;
         }
 
         public override Product Clone()
         {
-            Cubs newProduct = new Cubs(this);
+            Cups newProduct = new Cups(this);
             return newProduct;
         }
     }

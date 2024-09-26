@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.models
 {
-	/*
+    /*
     TDA CLIENTE (-> Hereda de PERSONA)
 
     - Propiedades
@@ -15,7 +15,7 @@ namespace your_four_legged_child.src.models
     - Métodos
     vacío       ImprimirDetalles() [sobreescrito]
     */
-	internal class Client : Person
+    internal class Client : Person
     {
         bool specialTaxpayer;
 
@@ -26,6 +26,9 @@ namespace your_four_legged_child.src.models
 
         public bool GetSpecialTaxpayer() => this.specialTaxpayer;
 
+        /// <summary>
+        /// Imprime la informacion del cliente
+        /// </summary>
         public override void PrintDetails()
         {
             base.PrintDetails();

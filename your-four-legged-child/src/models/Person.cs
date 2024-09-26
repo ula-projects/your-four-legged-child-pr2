@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace your_four_legged_child.src.models
 {
-	/*
+    /*
     TDA PERSONA
 
     - Propiedades
@@ -20,7 +20,7 @@ namespace your_four_legged_child.src.models
                             Persona(nombre, apellido, numIdentificación, númeroTelefono, residencia)
     vacío                   ImprimirDetalles()
     */
-	internal class Person
+    internal class Person
     {
         string name;
         string lastName;
@@ -46,6 +46,9 @@ namespace your_four_legged_child.src.models
         public string GetPhoneNumber() => this.phoneNumber;
         public string GetResidence() => this.residence;
 
+        /// <summary>
+        /// Imprime la informacion basica de una persona
+        /// </summary>
         public virtual void PrintDetails()
         {
             Console.WriteLine("Nombre: " + GetFullName());

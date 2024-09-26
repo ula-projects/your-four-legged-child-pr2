@@ -13,6 +13,7 @@ namespace your_four_legged_child.src.core
     TDA ORDEN
 
     - Compuesta por:
+    Producto
     Cliente
     Vendedor
     Moneda (enum)
@@ -59,6 +60,10 @@ namespace your_four_legged_child.src.core
             date = DateTime.Now;
         }
 
+        /// <summary>
+        /// Retorna el precio total del carrito
+        /// </summary>
+        /// <returns></returns>
         public float GetCartTotal()
         {
             float total = 0;
@@ -69,12 +74,19 @@ namespace your_four_legged_child.src.core
             return total;
         }
 
+        /// <summary>
+        /// Agrega un producto al carrito
+        /// </summary>
+        /// <param name="_product"></param>
         public void AddProductToCart(Product _product)
         {
             Array.Resize(ref cart, cart.Length + 1);
             cart[cart.Length - 1] = _product;
         }
 
+        /// <summary>
+        /// Imprime todos los elementos del carrito
+        /// </summary>
         public void PrintCart()
         {
             foreach (var product in cart)
@@ -84,6 +96,9 @@ namespace your_four_legged_child.src.core
 
         }
 
+        /// <summary>
+        /// Imprime la factura para esta orden de compra
+        /// </summary>
         public void PrintBill()
         {
             bool specialTaxpayer = client.GetSpecialTaxpayer();
@@ -128,11 +143,11 @@ namespace your_four_legged_child.src.core
             }
             if (paymentMethod == PaymentMethod.card)
             {
-                Menus.PrintLeftRightText("T.DEBITO", "Bs" + finalTotal);
+                Menus.PrintLeftRightText("T.DEBITO", "Bs " + finalTotal);
             }
             else
             {
-                Menus.PrintLeftRightText("EFECTIVO", "Bs" + finalTotal);
+                Menus.PrintLeftRightText("EFECTIVO", "Bs " + finalTotal);
             }
             Menus.PrintLine();
             Menus.PrintLeftRightText("TOTAL: ", "Bs " + finalTotal);

@@ -52,14 +52,14 @@
     <Compile Include="src\enums\Product.cs" />
     <Compile Include="src\models\accessories\Backpack.cs" />
     <Compile Include="src\models\accessories\Clothes.cs" />
-    <Compile Include="src\models\accessories\Cubs.cs" />
+    <Compile Include="src\models\accessories\Cups.cs" />
     <Compile Include="src\models\care\Toys.cs" />
     <Compile Include="src\models\Custom.cs" />
     <Compile Include="src\models\Person.cs" />
     <Compile Include="src\core\Store.cs" />
     <Compile Include="src\models\Client.cs" />
     <Compile Include="src\models\Product.cs" />
-    <Compile Include="src\models\care\Beed.cs" />
+    <Compile Include="src\models\care\Bed.cs" />
     <Compile Include="src\models\care\Collars.cs" />
     <Compile Include="src\models\care\Food.cs" />
     <Compile Include="src\models\services\SpecialService.cs" />

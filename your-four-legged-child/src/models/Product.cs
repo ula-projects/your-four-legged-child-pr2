@@ -8,7 +8,7 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models
 {
-	/*
+    /*
     TDA PRODUCTO
 
     - Propiedades
@@ -33,7 +33,7 @@ namespace your_four_legged_child.src.models
     Boolean             Comparar(Producto aComparar)
     */
 
-	internal class Product
+    internal class Product
     {
         string id;
         string name;
@@ -99,10 +99,7 @@ namespace your_four_legged_child.src.models
         /// <summary>
         /// Actualizar personalizacion del producto
         /// </summary>
-        public virtual void Update()
-        {
-
-        }
+        public virtual void Update() { }
 
         // *****Methods*****
 
@@ -117,7 +114,7 @@ namespace your_four_legged_child.src.models
             string priceText = "Precio: $" + this.price;
             Console.Write(nameText);
             Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length));
-            Console.WriteLine("Descripccion: " + details);
+            Console.WriteLine("Descripcion: " + details);
             Menus.PrintLine();
         }
 
@@ -130,7 +127,7 @@ namespace your_four_legged_child.src.models
             string priceText = "Precio: " + (_currency == Currency.usd ? "USD " : "BS ") + (_currency == Currency.usd ? this.price : this.price * _bcv);
             Console.Write(nameText);
             Console.WriteLine(priceText.PadLeft(Console.WindowWidth - nameText.Length));
-            Console.WriteLine("Descripccion: " + details);
+            Console.WriteLine("Descripcion: " + details);
             Menus.PrintLine();
         }
 
@@ -147,7 +144,7 @@ namespace your_four_legged_child.src.models
         }
 
         /// <summary>
-        /// 
+        /// Imprime el productos con sus detalles
         /// </summary>
         /// <param name="_currency"></param>
         /// <param name="bcv"></param>
@@ -160,6 +157,12 @@ namespace your_four_legged_child.src.models
             Menus.PrintLine();
         }
 
+        /// <summary>
+        /// Imprime el producto con el formato para la factura
+        /// </summary>
+        /// <param name="_currency"></param>
+        /// <param name="_bcv"></param>
+
         public void PrintToBill(Currency _currency, float _bcv)
         {
             Console.WriteLine(this.count + "x Bs" + (this.price * _bcv));
@@ -167,7 +170,7 @@ namespace your_four_legged_child.src.models
         }
 
         /// <summary>
-        /// Comparar Producto
+        /// Compara el producto con otro 
         /// </summary>
         /// <param name="_compareTo"></param>
         /// <returns></returns>

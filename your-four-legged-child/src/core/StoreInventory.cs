@@ -11,7 +11,7 @@ using your_four_legged_child.src.models.services;
 
 namespace your_four_legged_child.src.core
 {
-	/*
+    /*
     TDA STORE (continuación)
 
     - Métodos:
@@ -24,7 +24,7 @@ namespace your_four_legged_child.src.core
     Array de C. Caracteres  GetProductsIdByCategory(ProductTypes _category)
      */
 
-	internal partial class Store
+    internal partial class Store
     {
         /// <summary>
         /// Instancia todos los productos que se van a utilizar en el programa y los pone el el array products[]
@@ -32,7 +32,7 @@ namespace your_four_legged_child.src.core
         public void GenerateProducts()
         {
             products[0] = new Food("dogfood1kg", "Purina Dog Chow 1kg", 5, "Perro", "Comida para Perro de 1kg", ProductTypes.care);
-            products[1] = new Beed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
+            products[1] = new Bed("catbeed", "Cama para Gato", 25, "Gato", "Cama para gatos - Todos los tamanos", ProductTypes.care);
             products[2] = new Toys("dogtoychewy", "Jueguete masticable para Perro", 15, "Perro", "Jueguete de gota masticable para perros - Razas Mediana - Grande", ProductTypes.care);
             products[3] = new Collars("dogharness", "Pechera para perro", 20, "Perro", "Perchera para Perro - Razas Pequena - Mediana", ProductTypes.care);
             products[4] = new Product("alltoothbrush", "Cepillo de dientes para animales", 3, "Todos", "Cepillo de dientes para todo tipo de animal", ProductTypes.care);
@@ -44,7 +44,7 @@ namespace your_four_legged_child.src.core
             products[10] = new Clothes("dogpinkdress", "Vestido rosado para perro", 50, "Perro", "Vestido rosado para perros pequenos", ProductTypes.accessories);
             products[11] = new Product("cattiara", "Tiara para gatos", 25, "Gato", "Tiara dorada con perlas para gato", ProductTypes.accessories);
             products[12] = new Backpack("petcarrier", "Transportador de mascotas mediano", 75, "Todas", "Transportador de mascotas personalizado", ProductTypes.accessories);
-            products[13] = new Cubs("coffecub", "Taza de cafe", 25, "Todas", "Taza de cafe impreso con una foto de tu mascota y una frase", ProductTypes.accessories);
+            products[13] = new Cups("coffecub", "Taza de cafe", 25, "Todas", "Taza de cafe impreso con una foto de tu mascota y una frase", ProductTypes.accessories);
             products[14] = new Product("doglamp", "Lampara con forma de perro", 45, "Todas", "Lampara de mesa con forma de Golder Retriever", ProductTypes.accessories);
         }
 
@@ -88,7 +88,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Retorna el numero de productos que se venden en la tienda
         /// </summary>
         /// <returns></returns>
         public int GetProductsLength()
@@ -97,7 +97,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Retorna el numero de productos que hay en una categoria
         /// </summary>
         /// <param name="_category"></param>
         /// <returns></returns>
@@ -115,7 +115,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Retorna todos los ids de los productos
         /// </summary>
         /// <returns></returns>
         public string[] GetProductsId()
@@ -130,7 +130,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Retorna todos los ids de productos de una categoria
         /// </summary>
         /// <param name="_category"></param>
         /// <returns></returns>

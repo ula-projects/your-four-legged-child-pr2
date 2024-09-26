@@ -6,7 +6,7 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.core
 {
-	/*
+    /*
     TDA TIENDA
     
     - Descripción: Clase _principal_ que se encarga de manejar productos, las ordenes, los vendedores, los clientes y las ventas
@@ -38,7 +38,7 @@ namespace your_four_legged_child.src.core
      */
 
 
-	internal partial class Store
+    internal partial class Store
     {
         float bcv;
         Product[] products;
@@ -59,18 +59,30 @@ namespace your_four_legged_child.src.core
             bcv = _bcv;
         }
 
-        public void GenerateVendors()
+        void GenerateVendors()
         {
             vendors[0] = new Vendor("Nerio", "Balza", 27777348, "0424-7319042", "Santa Juana, Merida");
             vendors[1] = new Vendor("Liber", "Avendano", 12345679, "0424-7319042", "Centro, Merida");
             vendors[2] = new Vendor("Edwer", "Soret", 12345678, "0424-7319042", "Tovar, Merida");
         }
 
+        /// <summary>
+        /// Retorna un vendedor seleccionado
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Vendor GetVendor(int i) => vendors[i];
 
+        /// <summary>
+        /// Retorna la cantidad de vendedores disponibles
+        /// </summary>
+        /// <returns></returns>
         public int GetVendorCount() => vendors.Length;
 
 
+        /// <summary>
+        /// Imprime todos los vendedores
+        /// </summary>
         public void PrintVendors()
         {
             for (int i = 0; i < vendors.Length; i++)
@@ -82,12 +94,21 @@ namespace your_four_legged_child.src.core
             }
         }
 
+        /// <summary>
+        /// Recibe un nuevo vendedor y lo agrega a la lista de vendedores de la tienda
+        /// </summary>
+        /// <param name="_vendor"></param>
         public void AddNewVendor(Vendor _vendor)
         {
             Array.Resize(ref vendors, vendors.Length + 1);
             vendors[vendors.Length - 1] = _vendor;
         }
 
+        /// <summary>
+        /// Retorna el cliente que coincida con el mismo numero de cedula
+        /// </summary>
+        /// <param name="_idNumber"></param>
+        /// <returns></returns>
         public Client GetClient(int _idNumber)
         {
             foreach (var client in clients)
@@ -97,14 +118,21 @@ namespace your_four_legged_child.src.core
             return null;
         }
 
+        /// <summary>
+        /// Recibe un cliente y lo agrega a la lista de clientes de la tienda
+        /// </summary>
+        /// <param name="_client"></param>
         public void AddNewClient(Client _client)
         {
             Array.Resize(ref clients, clients.Length + 1);
             clients[clients.Length - 1] = _client;
         }
 
-
-
+        /// <summary>
+        /// Imprime los datoa de compra antes de pagar
+        /// </summary>
+        /// <param name="_client"></param>
+        /// <param name="_currency"></param>
         public void PrintOrderDetails(Client _client, Currency _currency)
         {
             bool specialTaxpayer = _client.GetSpecialTaxpayer();
@@ -127,6 +155,10 @@ namespace your_four_legged_child.src.core
             //Menus.PrintLine();
         }
 
+        /// <summary>
+        /// Se realiza una compra
+        /// </summary>
+        /// <param name="_order"></param>
         public void Payment(Order _order)
         {
             foreach (var product in cart)

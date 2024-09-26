@@ -35,6 +35,9 @@ namespace your_four_legged_child.src.models
         // Setters
         public void SetValue(string _value) { this.value = _value; }
 
+        /// <summary>
+        /// Imprime el Campo personalizado si tiene algun valor asignado
+        /// </summary>
         public void PrintField()
         {
             if (value.Length > 0)

@@ -10,7 +10,7 @@ using your_four_legged_child.src.utilities;
 namespace your_four_legged_child.src.core
 {
 
-	/*
+    /*
     TDA STORE (continuación)
 
     - Métodos
@@ -22,7 +22,7 @@ namespace your_four_legged_child.src.core
      */
 
 
-	internal partial class Store
+    internal partial class Store
     {
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// Calcula el total 
+        /// Calcula el precio total del carrito
         /// </summary>
         /// <returns></returns>
         public float GetCartTotal()
@@ -60,7 +60,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Menu para editar un producto del carrito
         /// </summary>
         /// <param name="i"></param>
         public void UpdateProduct(int i)
@@ -135,7 +135,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Elimina un producto del carrito
         /// </summary>
         /// <param name="_index"></param>
         public void DeleteProductFromCart(int _index)
@@ -156,7 +156,7 @@ namespace your_four_legged_child.src.core
         }
 
         /// <summary>
-        /// 
+        /// Imprime el carrito y muestra el precio total del carrito
         /// </summary>
         public void PrintCart()
         {
@@ -173,6 +173,11 @@ namespace your_four_legged_child.src.core
             Console.WriteLine(totalText.PadLeft(Console.WindowWidth));
             Menus.PrintLine();
         }
+
+        /// <summary>
+        /// Imprime el carrito y muestra el precio total en la moneda seleccionada
+        /// </summary>
+        /// <param name="_currency"></param>
         public void PrintCart(Currency _currency)
         {
             string totalText = "SUBTTL: " + (_currency == Currency.usd ? "USD " : "BS ") + (_currency == Currency.usd ? GetCartTotal() : GetCartTotal() * bcv);

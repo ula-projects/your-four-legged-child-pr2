@@ -8,8 +8,11 @@ using your_four_legged_child.src.utilities;
 
 namespace your_four_legged_child.src.models.care
 {
-	/*
+    /*
     TDA COLLAR (-> Hereda de Producto)
+
+    - Compuesto por:
+    Personalizable
     
     - Propiedades
     Personalizable          NombreGrabado
@@ -24,7 +27,7 @@ namespace your_four_legged_child.src.models.care
     (Sobrescrito) Boolean   Comparar(Producto aComparar)
      */
 
-	internal class Collars : Product
+    internal class Collars : Product
     {
         Custom EngravedName;
         Custom EngravedPhoneNumber;
@@ -32,7 +35,7 @@ namespace your_four_legged_child.src.models.care
         public Collars(string _id, string _name, float _price, string _animal, string _details, ProductTypes _type) : base(_id, _name, _price, _animal, _details, _type)
         {
             EngravedName = new Custom("Nombre Grabado");
-            EngravedPhoneNumber = new Custom("Telefono Gravado");
+            EngravedPhoneNumber = new Custom("Telefono Grabado");
         }
         public Collars(Collars copy) : base(copy.GetId(), copy.GetName(), copy.GetPrice(), copy.GetAnimal(), copy.GetDetails(), copy.GetProductType())
         {
